@@ -1,51 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '';
+
 import 'app_colors.dart';
 
 class AppFonts {
-
-
   static TextStyle appBarTextStyle({Color color = AppColors.headLineColors}) {
     return GoogleFonts.robotoMono(
-        color: color, fontWeight: FontWeight.bold, fontSize: 30
-    );
+        color: color, fontWeight: FontWeight.bold, fontSize: 30);
   }
 
   static TextStyle cardPetNameTextStyle(
       {Color color = AppColors.headLineColors}) {
     return GoogleFonts.robotoMono(
-        color: color, fontWeight: FontWeight.w100, fontSize: 20
-    );
+        color: color, fontWeight: FontWeight.w100, fontSize: 20);
   }
 
   static TextStyle cardPetDescTextStyle({Color color = AppColors.blackColor}) {
     return GoogleFonts.robotoMono(
-        color: color, fontWeight: FontWeight.w100, fontSize: 16
-    );
+        color: color, fontWeight: FontWeight.w100, fontSize: 16);
   }
-
 
   static TextStyle cardPetDescTextStyle2({Color color = AppColors.textColor3}) {
     return GoogleFonts.robotoMono(
-        color: color, fontWeight: FontWeight.w100, fontSize: 10
-    );
+        color: color, fontWeight: FontWeight.w100, fontSize: 10);
   }
-
 }
-  TextStyle _baseFont({
-    Color color = Colors.black,
-    required FontWeight fontWeight,
-    required double fontSize,
-  }) {
-    return GoogleFonts.plusJakartaSans(
-      color: color,
-      fontWeight: fontWeight,
-      fontSize: fontSize,
-    );
-  }
-  class PetsFont{
 
+TextStyle _baseFont({
+  Color color = Colors.black,
+  required FontWeight fontWeight,
+  required double fontSize,
+}) {
+  return GoogleFonts.plusJakartaSans(
+    color: color,
+    fontWeight: fontWeight,
+    fontSize: fontSize,
+  );
+}
+
+class PetsFont {
   static TextStyle extraExtraSmallRegular() {
     return _baseFont(
       fontWeight: FontWeight.w400,
@@ -241,6 +234,28 @@ class AppFonts {
       fontSize: 30,
     );
   }
-
 }
 
+class FontSize {
+  static const double s12 = 12.0;
+  static const double s13 = 13.0;
+  static const double s14 = 14.0;
+  static const double s15 = 15.0;
+  static const double s16 = 16.0;
+  static const double s17 = 17.0;
+  static const double s18 = 18.0;
+  static const double s19 = 19.0;
+  static const double s20 = 20.0;
+  static const double s22 = 22.0;
+}
+
+class IconSize {
+  static const double s10 = 10.0;
+  static const double s15 = 15.0;
+  static const double s20 = 20.0;
+  static const double s25 = 25.0;
+  static const double s30 = 30.0;
+  static const double s35 = 35.0;
+  static const double s40 = 40.0;
+  static const double s45 = 45.0;
+}

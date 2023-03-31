@@ -21,6 +21,7 @@ class AppStrings {
   static const String sizeSmall = 'Small';
   static const String sizeMedium = 'Medium';
   static const String sizeLarge = 'Large';
+  static const String sizeXLarge = 'XLarge';
   static const String ageAdult = 'Adult';
   static const String ageYoung= 'Young';
   static const String ageSenior= 'Senior';
@@ -34,5 +35,11 @@ class AppStrings {
   static const String name= 'Baby';
   static const String phone= 'Phone Number';
   static const String send = 'Send';
+  static const String yes = 'Yes';
+  static const String no = 'No';
+  static const String genderMale ='Male';
+  static const String genderFemale ='Female';
+  static const String genderOther ='Unknown';
+
 
 }
