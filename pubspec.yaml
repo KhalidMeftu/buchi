@@ -42,6 +42,9 @@ dependencies:
   internet_connection_checker:  # for internate connectivity.
   bloc: ^8.1.1 # bloc app state management
   http:        # request
+  google_fonts:
+  equatable:
+
 
 dev_dependencies:
   flutter_test:
@@ -95,3 +98,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Lovina
+      fonts:
+        - asset: assets/fonts/BeautifulLovina-Regular.ttf
+    - family: CoralPen
+      fonts:
+        - asset: assets/fonts/CoralPen.ttf
+    - family: Campton_Light
+      fonts:
+        - asset: assets/fonts/Campton_Light.ttf
