@@ -258,4 +258,5 @@ class IconSize {
   static const double s35 = 35.0;
   static const double s40 = 40.0;
   static const double s45 = 45.0;
+  static const double s75 = 75.0;
 }

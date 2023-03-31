@@ -43,3 +43,9 @@ double halfScreenWidth(BuildContext context) =>
 
 double thirdScreenWidth(BuildContext context) =>
     screenWidthFraction(context, dividedBy: 3);
+
+double halfScreenHeight(BuildContext context) =>
+    screenHeightFraction(context, dividedBy: 2);
+
+double thirdScreenHeight(BuildContext context) =>
+    screenHeightFraction(context, dividedBy: 3);

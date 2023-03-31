@@ -12,7 +12,7 @@ class AdoptMeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
-      size: const Size(100, 100),
+      size: const Size(80, 80),
       child: ClipOval(
         child: Material(
           color: AppColors.primaryColor,
@@ -23,7 +23,7 @@ class AdoptMeButton extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.search,size: IconSize.s30,),
+                const Icon(Icons.search,size: IconSize.s75,color: AppColors.whiteColor,),
                 title.isNotEmpty?
                 Text(title, style: PetsFont.largeRegular()):
                 Container(), // <-- Text

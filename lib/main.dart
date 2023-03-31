@@ -1,4 +1,5 @@
 import 'package:buchi/const/app_colors.dart';
+import 'package:buchi/presentation/widgets/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.brown,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const SplashScreen() //const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
