@@ -41,5 +41,7 @@ class AppStrings {
   static const String genderFemale ='Female';
   static const String genderOther ='Unknown';
 
+  static const String norouteFound ='No Route Found';
+
 
 }

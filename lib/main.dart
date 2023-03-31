@@ -1,5 +1,6 @@
 import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/presentation/widgets/splash_screen.dart';
+import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,23 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: Routes.splashScreenRoute,
+      //title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.brown,
       ),
-      home: const SplashScreen() //const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const SplashScreen() //const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
+//Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
