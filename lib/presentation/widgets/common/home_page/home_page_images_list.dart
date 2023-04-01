@@ -1,6 +1,6 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
-import '../../../const/app_colors.dart';
+import '../../../../const/app_colors.dart';
 
 class HomePagePetsList extends StatelessWidget {
   final String imageUrl;

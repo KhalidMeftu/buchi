@@ -2,11 +2,11 @@ import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 
-class SearchButton extends StatelessWidget {
+class AdoptMeButton extends StatelessWidget {
   final String title;
   final Function onPressed;
 
-  const SearchButton({Key? key, required this.title, required this.onPressed})
+  const AdoptMeButton({Key? key, required this.title, required this.onPressed})
       : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class SearchButton extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Icon(Icons.search,size: IconSize.s75,color: AppColors.whiteColor,),
+                const Icon(Icons.favorite,size: IconSize.s75,color: AppColors.primaryColor,),
                 title.isNotEmpty?
                 Text(title, style: PetsFont.largeRegular()):
                 Container(), // <-- Text

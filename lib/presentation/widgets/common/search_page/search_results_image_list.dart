@@ -1,8 +1,7 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
-
-import '../../../const/app_colors.dart';
-import '../../../const/ui_helper.dart';
+import '../../../../const/app_colors.dart';
+import '../../../../const/ui_helper.dart';
 
 class SearchResultsImagesList extends StatelessWidget {
   final String imageUrl;

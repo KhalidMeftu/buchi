@@ -39,7 +39,7 @@ class SplashScreen extends StatelessWidget {
             Padding(
               padding:  EdgeInsets.only(top:screenHeight(context)/10),
               child: Center(
-                child: AdoptMeButton(title: '', onPressed:(){
+                child: SearchButton(title: '', onPressed:(){
                   if (kDebugMode) {
                     print('Clicked now');
                   }
