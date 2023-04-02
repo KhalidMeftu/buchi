@@ -5,11 +5,12 @@ import 'package:buchi/domain/usecases/get_pets_list.dart';
 import 'package:buchi/presentation/widgets/splash_screen.dart';
 import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'const/service/service_locator.dart';
 import 'data/repository/pets_repository.dart';
 import 'domain/entity/pets.dart';
 
 void main() async{
-
+  ServicesLocator().init();
   runApp(const MyApp());
 }
 
@@ -30,7 +31,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
 
 
 class MyHomePage extends StatefulWidget {

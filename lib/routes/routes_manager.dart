@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const/app_strings.dart';
+import '../presentation/widgets/home_page.dart';
 
 class Routes{
   static const String splashScreenRoute ='/';
@@ -23,6 +24,9 @@ class RouteGenerator{
     {
       case Routes.splashScreenRoute:
         return MaterialPageRoute(builder: (_)=> const SplashScreen());
+
+      case Routes.homePageRoute:
+        return MaterialPageRoute(builder: (_)=> const HomePage());
 
       default:
         return unDefinedRoute();

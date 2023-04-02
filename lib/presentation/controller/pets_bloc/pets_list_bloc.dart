@@ -12,13 +12,16 @@ part 'pets_list_event.dart';
 part 'pets_list_state.dart';
 
 class PetsListBloc extends Bloc<PetsListEvent, PetsListState> {
-  PetsListBloc() : super(PetsListInitial()) {
+  final GetPetsListUseCase getPetsListUseCase;
+  PetsListBloc(this.getPetsListUseCase) : super(PetsListInitial()) {
     on<GetPetsListEvent>((event, emit) async {
       print('Bloc intialized');
-      BaseRemoteDataSource  baseRemoteDataSource = RemoteDataSource();
-      BasePetsRepository repository = PetsRepository(baseRemoteDataSource);
-      final result= await GetPetsList(repository).excute();
+     // BaseRemoteDataSource  baseRemoteDataSource = RemoteDataSource();
+      //BasePetsRepository repository = PetsRepository(baseRemoteDataSource);
+      final result= await getPetsListUseCase.excute();
       print(result);
+
+      // emit value
 
     });
   }

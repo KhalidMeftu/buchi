@@ -2,6 +2,8 @@ import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 
+import '../../../routes/routes_manager.dart';
+
 class SearchButton extends StatelessWidget {
   final String title;
   final Function onPressed;
@@ -18,7 +20,9 @@ class SearchButton extends StatelessWidget {
           color: AppColors.primaryColor,
           child: InkWell(
             onTap: () {
-              onPressed;
+              Navigator.of(context)
+                  .pushReplacementNamed(Routes.homePageRoute);
+
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
