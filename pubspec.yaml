@@ -41,10 +41,11 @@ dependencies:
   device_preview:  # testing screen ui on diffrenet screens
   internet_connection_checker:  # for internate connectivity.
   bloc: ^8.1.1 # bloc app state management
-  http:        # request
   google_fonts:
   equatable:
   carousel_slider: ^4.2.1
+  flutter_switch: ^0.3.2
+  dio: ^5.1.1
 
 
 dev_dependencies:
