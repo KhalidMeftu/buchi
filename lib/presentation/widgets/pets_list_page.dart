@@ -2,10 +2,8 @@ import 'package:buchi/const/service/service_locator.dart';
 import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:collection/collection.dart';
 import '../../const/app_colors.dart';
 import '../../const/app_strings.dart';
-import '../../domain/entity/pets.dart';
 import 'common/home_page/home_page_images_list.dart';
 
 class PetsListPage extends StatelessWidget {

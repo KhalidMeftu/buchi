@@ -11,6 +11,7 @@ class SearchDropDowns extends StatelessWidget {
       decoration: const InputDecoration(
         prefixIcon: Icon(Icons.arrow_drop_down),
       ),
+      disabledHint: Text('By Location'),
       onTap:(){
         onTap;
         // TODO arrow state using bloc
@@ -19,6 +20,7 @@ class SearchDropDowns extends StatelessWidget {
       items: values.map((String value) {
         return DropdownMenuItem<String>(
           value: value,
+
           child: Text(value),
         );
       }).toList(),

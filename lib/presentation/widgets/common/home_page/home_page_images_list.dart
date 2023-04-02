@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
+import '../../search_page/searching_page/searching_Page.dart';
 
 class HomePagePetsList extends StatelessWidget {
   final String imageUrl;
@@ -24,7 +25,13 @@ class HomePagePetsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap;
+       if(index==0)
+         {
+           Navigator.push(
+             context,
+             MaterialPageRoute(builder: (context) => const SearchingPage(isDog: true, isCat: false, isOther: false,)),
+           );
+         }
       },
       child: SizedBox(
         height: 170,

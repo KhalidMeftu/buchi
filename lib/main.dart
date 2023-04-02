@@ -2,7 +2,7 @@ import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/data/data_source/remote_data_source.dart';
 import 'package:buchi/domain/repository/base_pets_repository.dart';
 import 'package:buchi/domain/usecases/get_pets_list.dart';
-import 'package:buchi/presentation/widgets/splash_screen.dart';
+import 'package:buchi/presentation/widgets/splash/splash_screen.dart';
 import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'const/service/service_locator.dart';

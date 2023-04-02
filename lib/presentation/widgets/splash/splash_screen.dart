@@ -3,12 +3,12 @@ import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../const/app_font.dart';
-import '../../const/app_strings.dart';
-import '../../const/service/service_locator.dart';
-import '../../const/ui_helper.dart';
-import '../../routes/routes_manager.dart';
-import 'common/adopt_me_button.dart';
+import '../../../const/app_font.dart';
+import '../../../const/app_strings.dart';
+import '../../../const/service/service_locator.dart';
+import '../../../const/ui_helper.dart';
+import '../../../routes/routes_manager.dart';
+import '../common/adopt_me_button.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

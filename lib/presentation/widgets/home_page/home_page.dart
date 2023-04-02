@@ -1,12 +1,11 @@
 import 'package:buchi/presentation/widgets/pets_list_page.dart';
-import 'package:buchi/presentation/widgets/search_lists_page.dart';
+import 'package:buchi/presentation/widgets/search_page/search_lists_page.dart';
 import 'package:buchi/presentation/widgets/shared/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-
-import '../../const/app_colors.dart';
-import 'location_page.dart';
+import '../../../const/app_colors.dart';
+import '../location/location_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,7 +34,6 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColors.whiteColor,
         activeColor: AppColors.blackColor,
         color: AppColors.primaryColor,
-        // unselected icon color
         gap: 8,
         //haptic: true, // haptic feedback
         tabs: const [
@@ -61,7 +59,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onTabTapped(int index) {
-    // Error : setState method called after dispose()?
     if (!mounted) {
       return;
     }

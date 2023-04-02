@@ -1,9 +1,10 @@
-import 'package:buchi/presentation/widgets/splash_screen.dart';
+import 'package:buchi/presentation/widgets/splash/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../const/app_strings.dart';
-import '../presentation/widgets/home_page.dart';
+import '../presentation/widgets/home_page/home_page.dart';
+import '../presentation/widgets/search_page/searching_page/searching_Page.dart';
 
 class Routes{
   static const String splashScreenRoute ='/';
@@ -20,6 +21,8 @@ class Routes{
 
 class RouteGenerator{
   static Route<dynamic> getRoute(RouteSettings routeSettings){
+
+
     switch(routeSettings.name)
     {
       case Routes.splashScreenRoute:
@@ -27,6 +30,9 @@ class RouteGenerator{
 
       case Routes.homePageRoute:
         return MaterialPageRoute(builder: (_)=> const HomePage());
+        
+      //case Routes.searchPageRoute:
+       // return MaterialPageRoute(builder: (_)=>  SearchingPage(isDog:isdog, isCat: iscat, isOther: isother,));
 
 
 
