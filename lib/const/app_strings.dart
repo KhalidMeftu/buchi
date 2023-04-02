@@ -42,6 +42,10 @@ class AppStrings {
   static const String genderOther ='Unknown';
   static const String norouteFound ='No Route Found';
   static const String buchi ='Buchi';
+  static const String detail_description='Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
 
+  static const String dog_description= 'A man\'s best friend since the begining';
+  static const String cat_description= 'Magestic, cute even queen!';
+  static const String other_description= 'Birds, chamelon and many others';
 
 }

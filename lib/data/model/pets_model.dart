@@ -9,16 +9,14 @@ class PetsModel extends Pets{
         required super.age,
         required super.photos,
         required super.good_with_children,
-        //required super.pet_id,
         required super.source});
   factory PetsModel.fromJson(Map<String, dynamic> json)=>
       PetsModel(type:json['type'],
           gender:json['gender'],
           size:json['size'],
           age:json['age'],
-          photos:json['photos'],
+          photos:List<Photo>.from(json['photos'].map((x) => Photo.fromJson(x))),
           good_with_children:json['good_with_children'],
-          //pet_id:json['pet_id'],
           source:json['source']);
 
 

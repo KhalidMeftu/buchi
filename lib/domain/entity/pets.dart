@@ -4,9 +4,8 @@ class Pets {
   final String gender;
   final String size;
   final String age;
-  final List<dynamic> photos;
+  final List<Photo> photos;
   final bool good_with_children;
-  //final String pet_id;
   final String source;
 
   Pets(
@@ -16,7 +15,20 @@ class Pets {
       required this.age,
       required this.photos,
       required this.good_with_children,
-      //required this.pet_id,
       required this.source});
+
+}
+
+class Photo {
+  Photo({
+    required this.url,
+  });
+
+  String? url;
+
+  factory Photo.fromJson(Map<String, dynamic> json) => Photo(
+    url: json["url"]??'',
+  );
+
 
 }

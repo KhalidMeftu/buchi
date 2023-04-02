@@ -1,12 +1,13 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../const/app_colors.dart';
+import '../../../../const/app_strings.dart';
 
 class HomePagePetsList extends StatelessWidget {
   final String imageUrl;
   final String petCategory;
   final String description;
-  final String detailedDescription;
   final int index;
   final Function onTap;
 
@@ -15,7 +16,6 @@ class HomePagePetsList extends StatelessWidget {
       required this.imageUrl,
       required this.petCategory,
       required this.description,
-      required this.detailedDescription,
       required this.index,
       required this.onTap})
       : super(key: key);
@@ -26,73 +26,108 @@ class HomePagePetsList extends StatelessWidget {
       onTap: () {
         onTap;
       },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 7,
-        color: AppColors.whiteColor,
-        child: Row(
-          children: [
-            // display my image
-            if (index % 2 == 0) ...[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(7),
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
+      child: SizedBox(
+        height: 170,
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          elevation: 7,
+          color: AppColors.whiteColor,
+          child: Row(
+            // crossAxisAlignment: CrossAxisAlignment.,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (index % 2 == 0) ...[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.fitHeight,
+                    //width: 100,
+                  ),
                 ),
-              ),
-              Column(
-                children: [
-                  Text(
-                    petCategory,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SizedBox(
+                    width: 200,
+                    child: Column(
+                      children: [
+                        Text(
+                          petCategory,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Flexible(
+                          child: Text(
+                            description,
+                            style: PetsFont.largeMedium().copyWith(
+                                color: AppColors.blackColor,
+                                fontSize: FontSize.s12),
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                        Text(
+                          AppStrings.detail_description,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.textColor3,
+                              fontSize: FontSize.s12),
+                        )
+                      ],
+                    ),
                   ),
-                  Text(
-                    description,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.blackColor, fontSize: FontSize.s16),
-                  ),
-                  Text(
-                    petCategory,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.textColor3, fontSize: FontSize.s13),
-                  )
-                ],
-              ),
-            ] else ...[
-              Column(
-                children: [
-                  Text(
-                    petCategory,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    description,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.blackColor, fontSize: FontSize.s16),
-                  ),
-                  Text(
-                    petCategory,
-                    style: PetsFont.largeMedium().copyWith(
-                        color: AppColors.textColor3, fontSize: FontSize.s13),
-                  )
-                ],
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(7),
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
                 ),
-              ),
-            ]
+              ] else ...[
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SizedBox(
+                    width: 200,
+                    child: Column(
+                      children: [
+                        Text(
+                          petCategory,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Flexible(
+                          child: Text(
+                            description,
+                            style: PetsFont.largeMedium().copyWith(
+                                color: AppColors.blackColor,
+                                fontSize: FontSize.s12),
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.justify,
+                          ),
+                        ),
+                        Text(
+                          AppStrings.detail_description,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.textColor3,
+                              fontSize: FontSize.s12),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.fitHeight,
+                    //width: 100,
+                  ),
+                ),
+              ]
 
-            // create column and display lists in it
-          ],
+              // create column and display lists in it
+            ],
+          ),
         ),
       ),
     );

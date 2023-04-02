@@ -25,8 +25,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: AppColors.appBackgroundColor,
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60),
-          child: petsAppBar()),
+          preferredSize: const Size.fromHeight(60), child: petsAppBar()),
       body: _childern[_currentIndex],
       bottomNavigationBar: GNav(
         backgroundColor: AppColors.whiteColor,

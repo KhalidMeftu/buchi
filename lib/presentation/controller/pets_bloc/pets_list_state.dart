@@ -9,11 +9,20 @@ class PetsListInitial extends PetsListState {
   List<Object> get props => [];
 }
 
-class PetsList extends PetsListState{
+class PetsListLoading extends PetsListState{
+  final RequestState serverpetsList;
+  const PetsListLoading(this.serverpetsList);
+  @override
+  // TODO: implement props
+  List<Object?> get props => [serverpetsList];
+
+}
+
+class AllPetsListState extends PetsListState{
   final List<Pets> petsList;
   final RequestState serverpetsList;
 
-  PetsList(this.petsList, this.serverpetsList);
+  const AllPetsListState(this.petsList, this.serverpetsList);
 
   @override
   // TODO: implement props
