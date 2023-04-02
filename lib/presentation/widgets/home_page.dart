@@ -6,6 +6,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
 import '../../const/app_colors.dart';
+import 'location_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _childern = [
     const PetsListPage(),
     const SearchListPage(),
+    const LocationPage(),
   ];
 
   @override
@@ -41,14 +43,15 @@ class _HomePageState extends State<HomePage> {
             icon: LineIcons.home,
             iconActiveColor: AppColors.primaryColor,
           ),
-
           GButton(
             icon: LineIcons.search,
             iconActiveColor: AppColors.primaryColor,
           ),
-          //GButton(icon: LineIcons.search,text: AppStrings.search_page, iconActiveColor: AppColor.bottom_unselected,),
-          //GButton(icon: LineIcons.heart,text: AppStrings.fav, iconActiveColor: AppColor.bottom_unselected,),
-          //GButton(icon: LineIcons.user,text: AppStrings.about,iconActiveColor: AppColor.bottom_unselected,),
+          GButton(
+            icon: LineIcons.locationArrow,
+            iconActiveColor: AppColors.primaryColor,
+          ),
+
         ],
         onTabChange: (index) {
           onTabTapped(index);
