@@ -52,6 +52,7 @@ dependencies:
   line_icons: ^2.0.1
   multiselect:
     path: ./packages/
+  dropdown_textfield: ^1.0.8
 
 
 dev_dependencies:

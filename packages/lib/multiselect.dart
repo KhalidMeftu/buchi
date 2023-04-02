@@ -52,8 +52,8 @@ class _SelectRow extends StatelessWidget {
                 onChange(value!);
                 _theState.notify();
               },
-              activeTrackColor: Colors.lightGreenAccent,
-              activeColor: Colors.green,
+              activeTrackColor:  Colors.brown,
+              activeColor: Color(0xffF4EADE),
             ),
 
           ],

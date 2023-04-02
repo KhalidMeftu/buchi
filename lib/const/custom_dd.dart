@@ -73,7 +73,8 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>>
       child: SizedBox(
         width: style.width,
         height: style.height,
-        child: OutlinedButton(
+        child:
+        OutlinedButton(
           style: OutlinedButton.styleFrom(
             padding: style.padding,
             backgroundColor: style.backgroundColor,
@@ -84,10 +85,11 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>>
           onPressed: _toggleDropdown,
           child: Row(
             mainAxisAlignment:
-            style.mainAxisAlignment ?? MainAxisAlignment.center,
+            style.mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
             textDirection:
             widget.leadingIcon ? TextDirection.rtl : TextDirection.ltr,
-            mainAxisSize: MainAxisSize.min,
+            //mainAxisSize: MainAxisSize.min,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               if (_currentIndex == -1) ...[
                 widget.child,
@@ -97,7 +99,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>>
               if (!widget.hideIcon)
                 RotationTransition(
                   turns: _rotateAnimation,
-                  child: widget.icon ?? Icon(Icons.arrow_drop_down),
+                  child: widget.icon ?? const Icon(Icons.arrow_drop_down),
                 ),
             ],
           ),
@@ -120,7 +122,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>>
         onTap: () => _toggleDropdown(close: true),
         behavior: HitTestBehavior.translucent,
         // full screen container to register taps anywhere and close drop down
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Stack(

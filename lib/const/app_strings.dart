@@ -47,4 +47,9 @@ class AppStrings {
   static const String cat_description= 'Magestic, cute even queen!';
   static const String other_description= 'Birds, chamelon and many others';
 
+  static const List<String> goodWithChildrenList=[yes, no];
+  static const List<String> ageList=[ageBaby, ageYoung,ageAdult,ageSenior];
+  static const List<String> genderList=[genderMale, genderFemale];
+  static const List<String> sizeList=[sizeSmall, sizeMedium, sizeLarge, sizeXLarge];
+
 }
