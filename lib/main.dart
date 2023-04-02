@@ -1,9 +1,18 @@
 import 'package:buchi/const/app_colors.dart';
+import 'package:buchi/data/data_source/remote_data_source.dart';
+import 'package:buchi/domain/repository/base_pets_repository.dart';
+import 'package:buchi/domain/usecases/get_pets_list.dart';
 import 'package:buchi/presentation/widgets/splash_screen.dart';
 import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'data/repository/pets_repository.dart';
 
-void main() {
+void main() async{
+  // for testing purpose only
+  BaseRemoteDataSource baseRemoteDataSource =RemoteDataSource();
+  BasePetsRepository basePetsRepository = PetsRepository(baseRemoteDataSource);
+  await GetPetsList(basePetsRepository).excute();
+
   runApp(const MyApp());
 }
 

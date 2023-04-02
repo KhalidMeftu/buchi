@@ -1,7 +1,7 @@
-import 'package:buchi/domain/repository/pets_repository.dart';
+import 'package:buchi/domain/repository/base_pets_repository.dart';
 
 class GetPetsList{
-  final PetsRepository repository;
+  final BasePetsRepository repository;
 
   GetPetsList(this.repository);
 
