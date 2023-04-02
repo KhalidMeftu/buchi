@@ -1,6 +1,6 @@
 import '../entity/pets.dart';
 
 abstract class BasePetsRepository{
-  Future<Pets?> getPetsList();
-  Future<Pets?> searchPets(String val);
+  Future<List<Pets>> getPetsList();
+  Future<List<Pets>> searchPets(String val);
 }

@@ -1,16 +1,21 @@
 import 'package:buchi/const/app_colors.dart';
+import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../const/app_font.dart';
 import '../../const/app_strings.dart';
 import '../../const/ui_helper.dart';
 import 'common/adopt_me_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+  create: (context) => PetsListBloc()..add(GetPetsListEvent()),
+  lazy: false,
+  child: Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: AppColors.appBackgroundColor,
       body: SizedBox.expand(
@@ -49,6 +54,7 @@ class SplashScreen extends StatelessWidget {
           ],
         )
       ),
-    );
+    ),
+);
   }
 }

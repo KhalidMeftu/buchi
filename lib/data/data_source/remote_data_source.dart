@@ -7,20 +7,27 @@ import 'package:dio/dio.dart';
 import '../../domain/entity/pets.dart';
 
 abstract class BaseRemoteDataSource{
-  Future<Pets?> getPetsList();
+  Future<List<Pets>> getPetsList();
 }
 
 class RemoteDataSource implements BaseRemoteDataSource{
   @override
-  Future<Pets?> getPetsList() async{
+  Future<List<Pets>> getPetsList() async{
     try{
       var response = await Dio().get('${AppService.baseUrl}?limit=100');
       print(response);
 
-      return PetsModel.fromJson(response.data);
+      if(response.statusCode==200)
+        {
+          return List<Pets>.from((response.data['pets'] as List).map((e) => PetsModel.fromJson(e)));
+        }
+      else{
+        return response.data;
+      }
     }catch(e){
       print(e);
-      return null;
+      //return null;
+      throw e;
     }
 
 

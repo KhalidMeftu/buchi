@@ -40,12 +40,13 @@ dependencies:
   sqflite: ^2.2.6 # local database.
   device_preview:  # testing screen ui on diffrenet screens
   internet_connection_checker:  # for internate connectivity.
-  bloc: ^8.1.1 # bloc app state management
+  flutter_bloc: ^8.1.2 # bloc app state management
   google_fonts:
   equatable:
   carousel_slider: ^4.2.1
   flutter_switch: ^0.3.2
   dio: ^5.1.1
+  dartz: ^0.10.1
 
 
 dev_dependencies:

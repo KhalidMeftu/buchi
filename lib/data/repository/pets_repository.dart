@@ -6,13 +6,21 @@ class PetsRepository implements BasePetsRepository{
   final BaseRemoteDataSource baseremoteDataSource;
 
   PetsRepository(this.baseremoteDataSource);
+  //@override
+  //Future<ListPets?> getPetsList() async{
+   //return await baseremoteDataSource.getPetsList();
+  //}
+
+
+
   @override
-  Future<Pets?> getPetsList() async{
-   return await baseremoteDataSource.getPetsList();
+  Future<List<Pets>> getPetsList() async {
+    final result = await baseremoteDataSource.getPetsList();
+    return result;
   }
 
   @override
-  Future<Pets> searchPets(String val) {
+  Future<List<Pets>> searchPets(String val) {
     // TODO: implement searchPets
     throw UnimplementedError();
   }

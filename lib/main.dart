@@ -6,12 +6,9 @@ import 'package:buchi/presentation/widgets/splash_screen.dart';
 import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'data/repository/pets_repository.dart';
+import 'domain/entity/pets.dart';
 
 void main() async{
-  // for testing purpose only
-  BaseRemoteDataSource baseRemoteDataSource =RemoteDataSource();
-  BasePetsRepository basePetsRepository = PetsRepository(baseRemoteDataSource);
-  await GetPetsList(basePetsRepository).excute();
 
   runApp(const MyApp());
 }
