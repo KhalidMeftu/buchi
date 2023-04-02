@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:multiselect/multiselect.dart';
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
-import '../../common/search_page/search_drop_downs.dart';
+import '../../../../const/custom_dd.dart';
 import '../../shared/app_bar.dart';
 
 class SearchingPage extends StatefulWidget {
@@ -28,9 +28,9 @@ class _SearchingPageState extends State<SearchingPage> {
     AppStrings.others
   ];
 
-  List<String> dropDownValuesLocations = [
+  List<String> dropDownValuesLocations = [];
 
-  ];
+  List<String> selected = ['Dogs'];
 
   @override
   void initState() {
@@ -40,7 +40,15 @@ class _SearchingPageState extends State<SearchingPage> {
     print(widget.isCat);
     print(widget.isDog);
     print(widget.isOther);
+
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+
+    super.dispose();
   }
 
   @override
@@ -52,30 +60,52 @@ class _SearchingPageState extends State<SearchingPage> {
           preferredSize: const Size.fromHeight(60), child: petsAppBar()),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                    child: Card(
-                        elevation: 6,
-                        color: AppColors.whiteColor,
-                        child: SearchDropDowns(
-                          onTap: () {},
-                          values: dropDownValues,
-                        ))),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: AppColors.whiteColor,
+                    width: 170,
+                    child: DropDownMultiSelect(
+                      onChanged: (List<String> x) {
+                        setState(() {
+                          selected =x;
+                        });
+                      },
+                      options: const [AppStrings.dogs , AppStrings.cats , AppStrings.others ],
+                      selectedValues: selected,
+                      whenEmpty: 'Select Something',
+                    ),
+                  ),
+                ),
+              ),
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: AppColors.whiteColor,
+                    width: 170,
+                    child: DropDownMultiSelect(
+                      onChanged: (List<String> x) {
+                        setState(() {
+                          selected =x;
+                        });
+                      },
+                      options: const [AppStrings.dogs , AppStrings.cats , AppStrings.others ],
+                      selectedValues: selected,
+                      whenEmpty: 'Select Something',
+                    ),
+                  ),
+                ),
+              ),
 
-                Expanded(
-                    child: Container(
-                        color: AppColors.appBackgroundColor,
-                        child: SearchDropDowns(
-                          onTap: () {},
-                          values: dropDownValuesLocations,
-                        ))),
-              ],
-            ),
+            ],
           ),
+
+
         ],
       ),
     );
