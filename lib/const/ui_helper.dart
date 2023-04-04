@@ -59,3 +59,6 @@ double homeScreenImageHeight(BuildContext context)=>
 
 double homeScreenColumnWidth(BuildContext context)=>
     screenWidthFraction(context, dividedBy: 2);
+
+double detailImageHeight(BuildContext context)=>
+    screenWidthFraction(context, dividedBy:2);

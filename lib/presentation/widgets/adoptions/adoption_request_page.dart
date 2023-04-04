@@ -70,6 +70,7 @@ class _AdoptationRequestPageState extends State<AdoptationRequestPage> {
                 shape: BoxShape.rectangle,
                  ),
               child: TextField(
+                style: const TextStyle(color: AppColors.whiteColor),
                 textAlign: TextAlign.center,
                 controller: _nameController,
                 decoration: InputDecoration(
@@ -91,6 +92,7 @@ class _AdoptationRequestPageState extends State<AdoptationRequestPage> {
                 shape: BoxShape.rectangle,
                   ),
               child: TextField(
+                style: const TextStyle(color: AppColors.whiteColor),
                 textAlign: TextAlign.center,
                 controller: _phoneController,
                 keyboardType: TextInputType.phone,
@@ -122,7 +124,7 @@ class _AdoptationRequestPageState extends State<AdoptationRequestPage> {
                   });
                   // go to next page
                   Navigator.of(context)
-                      .pushNamed(Routes.homePageRoute);
+                      .pushNamed(Routes.congratsPageRoute);
                 }
               },
             ),

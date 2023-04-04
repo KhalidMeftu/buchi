@@ -2,7 +2,9 @@ import 'package:buchi/presentation/widgets/detail_screen/pets_details/image_slid
 import 'package:buchi/presentation/widgets/detail_screen/pets_details/pet_description_bottom_description.dart';
 import 'package:flutter/material.dart';
 import '../../../const/app_colors.dart';
+import '../../../const/ui_helper.dart';
 import '../../../data/model/pets_model.dart';
+import '../../../routes/routes_manager.dart';
 import '../adoptions/adoption_request_page.dart';
 import '../const_widgets/shared/app_bar.dart';
 
@@ -35,27 +37,21 @@ class DetailScreenPage extends StatelessWidget {
         children: [
           Container(
               color: AppColors.appBackgroundColor,
-              height: 182,
-              //width: 200,
               child: Padding(
-                padding: const EdgeInsets.all(4.0),
+                padding: const EdgeInsets.all(8.0),
                 child: ImageSlider(imagesList: imageList),
               )),
-          Expanded(
-            child: PetDetailsBottomView(
-              petName: type,
-              childrenStatus: notGoodWChildren,
-              age: age,
-              gender: gender,
-              size: size,
-              onTap: () {
-                //AdoptationRequestPage
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AdoptationRequestPage()),
-                );
-              },
-            ),
+          PetDetailsBottomView(
+            petName: type,
+            childrenStatus: notGoodWChildren,
+            age: age,
+            gender: gender,
+            size: size,
+            onTap: () {
+
+              Navigator.of(context)
+                  .pushReplacementNamed(Routes.adoptPageRoute);
+            },
           )
         ],
       ),

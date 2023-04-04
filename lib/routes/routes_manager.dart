@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const/app_strings.dart';
+import '../presentation/widgets/adoptions/adoption_request_page.dart';
 import '../presentation/widgets/congrats_page/congrats_page.dart';
 import '../presentation/widgets/detail_screen/detail_screen_page.dart';
 import '../presentation/widgets/home_page/home_page.dart';
@@ -58,6 +59,8 @@ class RouteGenerator {
                   size: args[4],
                   imageList: args[5],
                 ));
+      case Routes.adoptPageRoute:
+        return MaterialPageRoute(builder: (_)=> const AdoptationRequestPage());
       case Routes.congratsPageRoute:
         return MaterialPageRoute(builder: (_) => const CongratsPage());
 

@@ -10,12 +10,11 @@ class ImageSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return imagesList[0].url.toString().isEmpty
+    return imagesList.isEmpty
         ?
     Image.asset('assets/images/place_holder.png',
       fit: BoxFit.cover,
-      //height: 170,
-      //width: double.infinity,
+
     )
         :
     CarouselSlider(

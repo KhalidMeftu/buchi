@@ -27,7 +27,7 @@ class PetDetailsBottomView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.appBackgroundColor,
-      //height: (context),
+      height: halfScreenHeight(context),
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
