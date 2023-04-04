@@ -1,10 +1,13 @@
-part of 'fruits_bloc.dart';
+
+import 'package:equatable/equatable.dart';
+
+import '../../../data/model/pets_model.dart';
 
 abstract class PetsLocalDbState extends Equatable {
   const PetsLocalDbState();
 }
 
-class FruitsInitial extends PetsLocalDbState {
+class PetsInitial extends PetsLocalDbState {
   @override
   List<Object> get props => [];
 }

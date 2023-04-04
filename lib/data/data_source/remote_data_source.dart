@@ -3,7 +3,7 @@ import 'package:buchi/const/app_service.dart';
 import 'package:buchi/data/model/pets_model.dart';
 import 'package:dio/dio.dart';
 import '../../domain/entity/pets.dart';
-import '../../local_database/symbatest/dao.dart';
+import '../../local_database/dao.dart';
 
 abstract class BaseRemoteDataSource{
   Future<List<Pets>> getPetsList();

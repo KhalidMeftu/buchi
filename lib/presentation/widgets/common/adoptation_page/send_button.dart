@@ -10,14 +10,15 @@ class SendUserInfoButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.primaryColor,
-      child: RawMaterialButton(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(9.0))),
-        onPressed: () {
-          onTap;
-        },
+    return SizedBox(
+      height: 50,
+      child: ElevatedButton(
+        onPressed: () {onTap.call();},
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12), // <-- Radius
+          ),
+        ),
         child: Text(
           AppStrings.send,
           style: PetsFont.smallMedium().copyWith(color: AppColors.whiteColor),

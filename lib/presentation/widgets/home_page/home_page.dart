@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import '../../../const/app_colors.dart';
-import '../../../local_database/symbatest/appBloc/fruits_bloc.dart';
+import '../../controller/local_database_bloc/pets_bloc.dart';
+import '../../controller/local_database_bloc/pets_state.dart';
 import '../location/location_page.dart';
 
 class HomePage extends StatefulWidget {

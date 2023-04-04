@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../const/app_colors.dart';
 import '../../../data/model/pets_model.dart';
+import '../adoption_request_page.dart';
 import '../common/pets_details/image_slider.dart';
 import '../common/pets_details/pet_description_bottom_description.dart';
 import '../shared/app_bar.dart';
@@ -40,13 +41,21 @@ class DetailScreenPage extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: ImageSlider(imagesList: imageList),
               )),
-          PetDetailsBottomView(
-            petName: type,
-            childrenStatus: notGoodWChildren,
-            age: age,
-            gender: gender,
-            size: size,
-            onTap: () {},
+          Expanded(
+            child: PetDetailsBottomView(
+              petName: type,
+              childrenStatus: notGoodWChildren,
+              age: age,
+              gender: gender,
+              size: size,
+              onTap: () {
+                //AdoptationRequestPage
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AdoptationRequestPage()),
+                );
+              },
+            ),
           )
         ],
       ),

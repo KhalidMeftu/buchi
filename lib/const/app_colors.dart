@@ -10,5 +10,6 @@ class AppColors{
   static const Color whiteColor =Color(0xfffafafa);
   static const Color transParentColor =Colors.transparent;
   static const Color ghostWhite = Color(0xfff8f4ff);
+  static const Color textFieldBgColor= Color(0xff808080);
 
 }

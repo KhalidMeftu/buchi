@@ -54,6 +54,7 @@ dependencies:
     path: ./packages/
   dropdown_textfield: ^1.0.8
   sembast: ^3.4.3+1 # local database no sql.
+  lottie: ^2.3.1
 
 
 dev_dependencies:
@@ -85,6 +86,7 @@ flutter:
      - assets/images/dogs.png
      - assets/images/other.png
      - assets/images/place_holder.png
+     - assets/lottie_animations/nodata.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

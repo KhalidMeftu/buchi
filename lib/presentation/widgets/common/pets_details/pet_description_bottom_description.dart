@@ -27,7 +27,7 @@ class PetDetailsBottomView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.appBackgroundColor,
-      //height: halfScreenHeight(context),
+      //height: (context),
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
@@ -85,6 +85,7 @@ class PetDetailsBottomView extends StatelessWidget {
                 child: AdoptMeButton(
                   onPressed: () {
                 /// go to user information filling
+                    onTap.call();
               },
             )),
             Padding(

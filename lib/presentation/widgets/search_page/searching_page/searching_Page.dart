@@ -1,24 +1,23 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 import 'package:multiselect/multiselect.dart';
-
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
 import '../../../../const/custom_dd.dart';
 import '../../../../const/ui_helper.dart';
+import '../../../../routes/routes_manager.dart';
 import '../../common/adopt_me_button.dart';
 import '../../shared/app_bar.dart';
-import '../search_results_page.dart';
 
 class SearchingPage extends StatefulWidget {
-  final bool isDog;
-  final bool isCat;
-  final bool isOther;
+  final bool isSearchingDog;
+  final bool isSearchingCat;
+  final bool isSearchingOther;
 
   const SearchingPage({Key? key,
-    required this.isDog,
-    required this.isCat,
-    required this.isOther})
+    required this.isSearchingDog,
+    required this.isSearchingCat,
+    required this.isSearchingOther})
       : super(key: key);
 
   @override
@@ -38,9 +37,6 @@ class _SearchingPageState extends State<SearchingPage> {
 
   bool isSearchOnlineOn = false;
   bool isGoodWChildrenSelected=false;
-  bool isAgeSelected=false;
-  bool isGenderSelected=false;
-  bool isSizeSelected=false;
   String selectedAge='';
   String selectedGender='';
   String selectedSize='';
@@ -52,13 +48,13 @@ class _SearchingPageState extends State<SearchingPage> {
   }
 
   void setSelectedValues() {
-     if (widget.isCat == true) {
-      selectedPetType.add(AppStrings.dogs);
+     if (widget.isSearchingCat == true) {
+      selectedPetType.add(AppStrings.cats);
     }
-    if (widget.isDog == true) {
-      selectedPetType.add(AppStrings.cats,);
+    if (widget.isSearchingDog == true) {
+      selectedPetType.add(AppStrings.dogs,);
     }
-    if (widget.isOther == true) {
+    if (widget.isSearchingOther == true) {
       selectedPetType.add(AppStrings.others);
     }
   }
@@ -99,7 +95,7 @@ class _SearchingPageState extends State<SearchingPage> {
                         AppStrings.others
                       ],
                       selectedValues: selectedPetType,
-                      whenEmpty: 'Select Something',
+                      whenEmpty: '',
                     ),
                   ),
                 ),
@@ -142,25 +138,6 @@ class _SearchingPageState extends State<SearchingPage> {
                     ),
                   )
 
-                /*Container(
-                    color: AppColors.whiteColor,
-                    width: 170,
-                    child: DropDownMultiSelect(
-                      onChanged: (List<String> x) {
-                        setState(() {
-                          selected = x;
-                        });
-                      },
-                      options: const [
-                        AppStrings.dogs,
-                        AppStrings.cats,
-                        AppStrings.others
-                      ],
-                      selectedValues: selected,
-                      whenEmpty: 'Select Something',
-                    ),
-                  ),
-                  */
               ),
             ],
           ),
@@ -252,14 +229,12 @@ class _SearchingPageState extends State<SearchingPage> {
 
                   if(index==0)
                   {
-                    print('ageBaby');
                     setState(() {
                       selectedAge=AppStrings.ageBaby;
                     });
                   }
                   if(index==1)
                   {
-                    print('ageYoung');
                     setState(() {
                       selectedAge=AppStrings.ageYoung;
                     });
@@ -267,14 +242,12 @@ class _SearchingPageState extends State<SearchingPage> {
 
                   if(index==2)
                   {
-                    print('ageAdult');
                     setState(() {
                       selectedAge=AppStrings.ageAdult;
                     });
                   }
                   if(index==3)
                   {
-                    print('ageSenior');
                     setState(() {
                       selectedAge=AppStrings.ageSenior;
                     });
@@ -306,7 +279,7 @@ class _SearchingPageState extends State<SearchingPage> {
                       ),
                 )
                     .toList(),
-                child: Text(
+                child: const Text(
                   '',
                 ),
               ),
@@ -332,19 +305,15 @@ class _SearchingPageState extends State<SearchingPage> {
               height: 60,
               child: CustomDropdown<int>(
                 onChange: (int value, int index) {
-                  setState(() {
-                    isGenderSelected=true;
-                  });
+
                   if(index==0)
                   {
-                    print('genderMale');
                     setState(() {
                       selectedGender =AppStrings.genderMale;
                     });
                   }
                   if(index==1)
                   {
-                    print('genderFemale');
                     setState(() {
                       selectedGender =AppStrings.genderFemale;
                     });
@@ -406,19 +375,15 @@ class _SearchingPageState extends State<SearchingPage> {
                 onChange: (int value, int index) {
                   //sizeSmall, sizeMedium, sizeLarge, sizeXLarge
 
-                  setState(() {
-                    isSizeSelected=true;
-                  });
+
                   if(index==0)
                   {
-                    print('sizeSmall');
                     setState(() {
                       selectedSize=AppStrings.sizeSmall;
                     });
                   }
                   if(index==1)
                   {
-                    print('sizeMedium');
                     setState(() {
                       selectedSize=AppStrings.sizeMedium;
                     });
@@ -426,14 +391,12 @@ class _SearchingPageState extends State<SearchingPage> {
 
                   if(index==2)
                   {
-                    print('sizeLarge');
                     setState(() {
                       selectedSize=AppStrings.sizeLarge;
                     });
                   }
                   if(index==3)
                   {
-                    print('sizeXLarge');
                     setState(() {
                       selectedSize=AppStrings.sizeXLarge;
                     });
@@ -501,22 +464,8 @@ class _SearchingPageState extends State<SearchingPage> {
               child: Column(
                 children: [
                   SearchButton(onPressed: () {
-
-                    /// todo get selected pets list
-                    /// Todo if gwch selected get value
-                    /// Todo if age selected get value
-                    /// Todo if gender selected get value
-                    /// Todo if size selected get value
-
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  SearchResultsPage(pets: selectedPetType,
-                        goodWithChildrenSelected: isGoodWChildrenSelected,
-                        ageSelected: selectedAge,
-                        genderSelected: selectedGender,
-                        sizeSelected: selectedSize,)),
-                    );
+                    Navigator.pushNamed(context, Routes.searchResultsRoute,
+                        arguments: [selectedPetType, isGoodWChildrenSelected, selectedAge, selectedGender, selectedSize,isSearchOnlineOn]);
                   }),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
