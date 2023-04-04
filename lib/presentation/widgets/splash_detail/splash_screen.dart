@@ -20,29 +20,30 @@ class SplashScreen extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: AppColors.appBackgroundColor,
-        body: SizedBox.expand(
-            child: Column(
+        body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                SizedBox(
-                    height: halfScreenHeight(context),
-                    child: Image.asset(
-                      'assets/images/splash_dog.png',
-                      fit: BoxFit.cover,
-                    )),
-                Positioned(
-                    top: screenWidth(context) / 10,
-                    left: screenWidth(context) / 15,
-                    child: Text(
-                      AppStrings.splashDogsInAddis,
-                      style: PetsFont.largeMedium().copyWith(
-                          color: AppColors.whiteColor,
-                          fontSize: FontSize.s20,
-                          fontWeight: FontWeight.bold),
-                    ))
-              ],
+            Container(
+                height: halfScreenHeight(context),
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/splash_dog.png"),
+                      fit: BoxFit.cover),
+                ),
+                child:Align(alignment:Alignment.centerLeft,child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    AppStrings.splashDogsInAddis,
+                    style: PetsFont.largeMedium().copyWith(
+                        color: AppColors.whiteColor,
+                        fontSize: FontSize.s20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )) // Foreground widget here
+            ),
+            const SizedBox(
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -66,14 +67,14 @@ class SplashScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: screenHeight(context) / 10),
               child: Center(
                 child: SearchButton(
-                  onPressed: (){
-                   goToHomePage(context);
-                  }
+                    onPressed: (){
+                      goToHomePage(context);
+                    }
                 ),
               ),
             ),
           ],
-        )),
+        )
       ),
     );
   }
