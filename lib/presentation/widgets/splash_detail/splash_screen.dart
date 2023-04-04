@@ -1,6 +1,5 @@
 import 'package:buchi/const/app_colors.dart';
 import 'package:flutter/material.dart';
-
 import '../../../const/app_font.dart';
 import '../../../const/app_strings.dart';
 import '../../../const/ui_helper.dart';
@@ -15,7 +14,8 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: AppColors.appBackgroundColor,
-        body: Column(
+        body:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                     )) // Foreground widget here
-                ),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -57,7 +57,8 @@ class SplashScreen extends StatelessWidget {
               child: Text(
                 AppStrings.splashAdoptionMessage,
                 style: PetsFont.smallMedium().copyWith(
-                    color: AppColors.blackColor, fontSize: FontSize.s15),
+                    color: AppColors.blackColor,
+                    fontSize: FontSize.s15),
               ),
             ),
             Padding(
@@ -69,7 +70,8 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        ),
+    );
   }
 
   void goToHomePage(context) {

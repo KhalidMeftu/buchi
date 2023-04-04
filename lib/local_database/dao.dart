@@ -1,48 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:sembast/sembast.dart';
-
 import '../const/app_strings.dart';
 import '../data/model/pets_model.dart';
 import 'app_database.dart';
 
 class PetsDAO {
-  static const String FRUIT_STORE_NAME = 'fruits';
+  static const String Pets_Name = 'pets';
+  final _petsStore = intMapStoreFactory.store(Pets_Name);
 
-  // A Store with int keys and Map<String, dynamic> values.
-  // This Store acts like a persistent map, values of which are Fruit objects converted to Map
-  final _petsStore = intMapStoreFactory.store(FRUIT_STORE_NAME);
-
-  // Private getter to shorten the amount of code needed to get the
-  // singleton instance of an opened database.
   Future<Database> get _db async => await AppDatabase.instance.database;
 
   Future insert(PetsModel fruit) async {
-    //await _fruitStore.add(await _db, fruit.toMap());
     await _petsStore.add(await _db, fruit.toJson());
   }
 
-  Future update(PetsModel fruit) async {
-    // For filtering by key (ID), RegEx, greater than, and many other criteria,
-    // we use a Finder.
-    final finder = Finder(filter: Filter.byKey(fruit.id));
-    await _petsStore.update(
-      await _db,
-      //fruit.toMap(),
-      fruit.toJson(),
-      finder: finder,
-    );
-  }
 
-  Future delete(PetsModel fruit) async {
-    final finder = Finder(filter: Filter.byKey(fruit.id));
-    await _petsStore.delete(
-      await _db,
-      finder: finder,
-    );
-  }
 
-  Future<List<PetsModel>> getAllSortedByName() async {
-    // Finder object can also sort data.
+  Future<List<PetsModel>> getPetslSortedByName() async {
     final finder = Finder(sortOrders: [
       SortOrder('type'),
     ]);
@@ -52,10 +25,8 @@ class PetsDAO {
       finder: finder,
     );
 
-    // Making a List<Fruit> out of List<RecordSnapshot>
     return recordSnapshots.map((snapshot) {
       final fruit = PetsModel.fromJson(snapshot.value);
-      // An ID is a key of a record from the database.
       fruit.id = snapshot.key;
       return fruit;
     }).toList();
@@ -63,10 +34,6 @@ class PetsDAO {
 
   Future searchLocalDatabase(List<String> pets, bool gwch, String age,
       String gender, String size) async {
-
-
-
-
 
     if(pets.toString() =='[]')
       {
@@ -215,7 +182,6 @@ class PetsDAO {
           }).toList();
         }
       }
-
       else{
 
         if(pets.contains(AppStrings.dog) && pets.contains(AppStrings.cat)
@@ -1133,9 +1099,6 @@ class PetsDAO {
         }
       }
       }
-
-
-
 
   }
 }

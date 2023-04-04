@@ -83,6 +83,7 @@ class AppStrings {
   static const String other = 'Others';
   static const String somethingwrong =' Something Went Wrong';
   static const String locationBased ='I was thinking to implement location based search';
+  static const String noInternate ='No Internet Connection';
 
 
 

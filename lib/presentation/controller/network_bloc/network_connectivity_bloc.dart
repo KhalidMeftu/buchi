@@ -21,5 +21,7 @@ class NetworkConnectivityBloc extends Bloc<NetworkConnectivityEvent, NetworkConn
       // TODO: implement event handler
       event.isConnected ? emit(NetworkSuccess()) : emit(NetworkFailure());
     });
+
+
   }
 }

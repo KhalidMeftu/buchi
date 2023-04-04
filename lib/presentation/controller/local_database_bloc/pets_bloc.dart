@@ -25,7 +25,7 @@ class PetsLocalDbBloc extends Bloc<PetsLocalDbEvent, PetsLocalDbState> {
     on<LoadPets>((event, emit) async {
       // TODO: implement event handler
       emit(LocalDbPetsLoading());
-      final fruits = await _petsDAO.getAllSortedByName().whenComplete(() {});
+      final fruits = await _petsDAO.getPetslSortedByName().whenComplete(() {});
 
       emit(PetsLocalDBLoaded(fruits));
       // Yielding a state bundled with the Fruits from the database.

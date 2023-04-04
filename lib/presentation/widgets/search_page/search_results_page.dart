@@ -96,6 +96,7 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
     );
   }
 
+  /// searching from web is the some because we already have added to our local database and the
   BlocBuilder<PetsLocalDbBloc, PetsLocalDbState> localDatabaseSearch() {
     return BlocBuilder<PetsLocalDbBloc, PetsLocalDbState>(
         builder: (context, state) {

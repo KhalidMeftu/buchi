@@ -6,10 +6,7 @@ class PetsRepository implements BasePetsRepository{
   final BaseRemoteDataSource baseremoteDataSource;
 
   PetsRepository(this.baseremoteDataSource);
-  //@override
-  //Future<ListPets?> getPetsList() async{
-   //return await baseremoteDataSource.getPetsList();
-  //}
+
 
 
 
@@ -18,11 +15,17 @@ class PetsRepository implements BasePetsRepository{
     final result = await baseremoteDataSource.getPetsList();
     return result;
   }
-
+//final List<String> selectedPets;
+//   final bool gwc;
+//   final String age;
+//   final String gender;
+//   final String size;
   @override
-  Future<List<Pets>> searchPets(String val) {
+  Future<List<Pets>> searchPets(List<String> selectedPets,bool gwc,String age,String gender,String size) async {
     // TODO: implement searchPets
-    throw UnimplementedError();
-  }
+    final result = await baseremoteDataSource.getSearchedPets(selectedPets, gwc,age, gender, size );
+    return result;  }
+
+
   
 }
