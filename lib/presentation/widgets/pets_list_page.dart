@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../const/app_colors.dart';
 import '../../const/app_strings.dart';
+import '../../routes/routes_manager.dart';
 import 'home_page/home_page/home_page_live_images_list.dart';
 
 class PetsListPage extends StatelessWidget {
@@ -30,7 +31,18 @@ class PetsListPage extends StatelessWidget {
                         HomePageLivePetsList(
                           imageUrl:state.petsList[index].photos.length>1?state.petsList[index].photos[0].url.toString():'', /// i only need one image
                           petCategory: state.petsList[index].type.toString(),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.petdetailPageRoute,
+                                arguments: [
+                                  state.petsList[index].type,
+                                  state.petsList[index].good_with_children,
+                                  state.petsList[index].age,
+                                  state.petsList[index].gender,
+                                  state.petsList[index].size,
+                                  state.petsList[index].photos
+                                ]);
+                          },
                           description: AppStrings.dog_description,
                         ),
 
