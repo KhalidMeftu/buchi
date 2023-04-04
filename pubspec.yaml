@@ -37,15 +37,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0 # dependency injection
   shared_preferences: ^2.0.20 # for saving states like theme..
-  device_preview:  # testing screen ui on diffrenet screens
-  internet_connection_checker:  # for internate connectivity.
+  device_preview:  # testing screen ui on different screens
+  connectivity_plus: ^3.0.3 # for internate connectivity.
   flutter_bloc: ^8.1.2 # bloc app state management
   google_fonts:
   equatable:
   carousel_slider: ^4.2.1
   flutter_switch: ^0.3.2
   dio: ^5.1.1
-  dartz: ^0.10.1
   cached_network_image: ^3.2.3
   google_nav_bar:
   line_icons: ^2.0.1
