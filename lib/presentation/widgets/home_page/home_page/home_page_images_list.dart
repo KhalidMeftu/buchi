@@ -48,7 +48,7 @@ class HomePagePetsList extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 200,
+                  width: homeScreenColumnWidth(context),
                   child: Column(
                     children: [
                       Text(
@@ -63,20 +63,22 @@ class HomePagePetsList extends StatelessWidget {
                           style: PetsFont.largeMedium().copyWith(
                               color: AppColors.blackColor,
                               fontSize: FontSize.s12),
-                          maxLines: 4,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Text(
-                        AppStrings.detail_description,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 4,
-                        textAlign: TextAlign.center,
-                        style: PetsFont.largeMedium().copyWith(
-                            color: AppColors.textColor3,
-                            fontSize: FontSize.s12),
+                      Flexible(
+                        child: Text(
+                          AppStrings.detail_description,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.textColor3,
+                              fontSize: FontSize.s12),
+                        ),
                       )
                     ],
                   ),
@@ -85,7 +87,7 @@ class HomePagePetsList extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: SizedBox(
-                    width: 200,
+                    width: homeScreenColumnWidth(context),
                     child: Column(
                       children: [
                         Text(
@@ -100,17 +102,19 @@ class HomePagePetsList extends StatelessWidget {
                             style: PetsFont.largeMedium().copyWith(
                                 color: AppColors.blackColor,
                                 fontSize: FontSize.s12),
-                            maxLines: 4,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.justify,
                           ),
                         ),
-                        Text(
-                          AppStrings.detail_description,
-                          style: PetsFont.largeMedium().copyWith(
-                              color: AppColors.textColor3,
-                              fontSize: FontSize.s12),
+                        Flexible(
+                          child: Text(
+                            AppStrings.detail_description,
+                            style: PetsFont.largeMedium().copyWith(
+                                color: AppColors.textColor3,
+                                fontSize: FontSize.s12),
+                          ),
                         )
                       ],
                     ),

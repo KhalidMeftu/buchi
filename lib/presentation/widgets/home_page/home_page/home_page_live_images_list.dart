@@ -55,7 +55,7 @@ class HomePageLivePetsList extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 200,
+                  width: homeScreenColumnWidth(context),
                   child: Column(
                     children: [
                       Text(
@@ -76,14 +76,16 @@ class HomePageLivePetsList extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Text(
-                        AppStrings.detail_description,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 4,
-                        textAlign: TextAlign.center,
-                        style: PetsFont.largeMedium().copyWith(
-                            color: AppColors.textColor3,
-                            fontSize: FontSize.s12),
+                      Flexible(
+                        child: Text(
+                          AppStrings.detail_description,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          style: PetsFont.largeMedium().copyWith(
+                              color: AppColors.textColor3,
+                              fontSize: FontSize.s12),
+                        ),
                       )
                     ],
                   ),

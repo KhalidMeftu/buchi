@@ -54,3 +54,8 @@ double homeScreenImageWidth(BuildContext context)=>
 double homeScreenImageHeight(BuildContext context)=>
     screenWidthFraction(context, dividedBy:3);
 
+
+/// home oage column width
+
+double homeScreenColumnWidth(BuildContext context)=>
+    screenWidthFraction(context, dividedBy: 2);
