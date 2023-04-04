@@ -2,6 +2,7 @@ import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
+import '../../../../const/ui_helper.dart';
 
 class HomePagePetsList extends StatelessWidget {
   final String imageUrl;
@@ -26,7 +27,7 @@ class HomePagePetsList extends StatelessWidget {
        onTap.call();
       },
       child: SizedBox(
-        height: 170,
+        height: homeScreenImageHeight(context),
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -41,9 +42,9 @@ class HomePagePetsList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
                     imageUrl,
-                    fit: BoxFit.fitHeight,
-                    height: 170,
-                    //width: 130,
+                    fit: BoxFit.cover,
+                    height: homeScreenImageHeight(context),
+                    width: homeScreenImageWidth(context),
                   ),
                 ),
                 SizedBox(
@@ -120,8 +121,8 @@ class HomePagePetsList extends StatelessWidget {
                   child: Image.asset(
                     imageUrl,
                     fit: BoxFit.fitHeight,
-                    height: 170,
-                    width: 130,
+                    height: homeScreenImageHeight(context),
+                    width: homeScreenImageWidth(context),
                     //width: 100,
                   ),
                 ),
