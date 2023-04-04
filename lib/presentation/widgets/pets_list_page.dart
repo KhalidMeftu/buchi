@@ -1,10 +1,11 @@
+import 'package:buchi/const/app_font.dart';
 import 'package:buchi/const/service/service_locator.dart';
 import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../const/app_colors.dart';
 import '../../const/app_strings.dart';
-import 'common/home_page/home_page_images_list.dart';
+import 'home_page/home_page/home_page_live_images_list.dart';
 
 class PetsListPage extends StatelessWidget {
   const PetsListPage({Key? key}) : super(key: key);
@@ -21,37 +22,24 @@ class PetsListPage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is AllPetsListState) {
-              return Column(
-                children: [
-                  HomePagePetsList(
-                    imageUrl:
-                    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62027413/6/?bust=1680422229',
-                    petCategory: AppStrings.dogs,
-                    index: 0,
-                    onTap: () {},
-                    description: AppStrings.dog_description,
-                  ),
+              return ListView.builder(
+                  itemCount:state.petsList.length,
+                  itemBuilder: (context,index){
+                    return Column(
+                      children: [
+                        HomePageLivePetsList(
+                          imageUrl:state.petsList[index].photos.length>1?state.petsList[index].photos[0].url.toString():'', /// i only need one image
+                          petCategory: state.petsList[index].type.toString(),
+                          onTap: () {},
+                          description: AppStrings.dog_description,
+                        ),
 
-                  HomePagePetsList(
-                    imageUrl:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62020987/1/?bust=1680411625',
-                    petCategory: AppStrings.cats,
-                    index: 3,
-                    onTap: () {},
-                    description:AppStrings.cat_description,
-                  ),
+                      ],
+                    );
+                  });
 
-
-                  HomePagePetsList(
-                    imageUrl:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62020987/1/?bust=1680411625',
-                    petCategory: AppStrings.others,
-                    index: 0,
-                    onTap: () {},
-                    description: AppStrings.other_description,
-                  ),
-                ],
-              );
             }
-            return Text('lOADING');
+            return  Center(child: Text(AppStrings.somethingwrong, style: PetsFont.largeMedium().copyWith(color: AppColors.primaryColor),));
           },
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:buchi/presentation/widgets/pets_list_page.dart';
 import 'package:buchi/presentation/widgets/search_page/search_lists_page.dart';
-import 'package:buchi/presentation/widgets/shared/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -8,6 +7,7 @@ import 'package:line_icons/line_icons.dart';
 import '../../../const/app_colors.dart';
 import '../../controller/local_database_bloc/pets_bloc.dart';
 import '../../controller/local_database_bloc/pets_state.dart';
+import '../const_widgets/shared/app_bar.dart';
 import '../location/location_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,39 +44,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60), child: petsAppBar()),
-      body:  BlocBuilder<PetsLocalDbBloc, PetsLocalDbState>(
-        builder: (context, state) {
-         /* if (state is FruitsLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          else if (state is FruitsLoaded) {
-            return ListView.builder(
-              itemCount: state.fruits.length,
-              itemBuilder: (context, index) {
-                final displayedFruit = state.fruits[index];
-                return Column(
-                  children: [
-                    for(var x in displayedFruit.photos )...[
-                      Text(x.url.toString()),
-                    ],
-
-                    ListTile(
-                      title: Text(displayedFruit.type),
-                      subtitle:
-                      Text(displayedFruit.good_with_children.toString()),
-                      trailing: Text(''),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
-          */
-          return Container(child: _childern[_currentIndex]);
-        },
-      ),
+      body:  Container(child: _childern[_currentIndex]),
       bottomNavigationBar: GNav(
         backgroundColor: AppColors.whiteColor,
         color: AppColors.primaryColor,

@@ -1,9 +1,8 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:buchi/const/app_strings.dart';
-import 'package:buchi/presentation/widgets/shared/app_bar.dart';
 import 'package:flutter/material.dart';
-
-import '../../const/app_colors.dart';
+import '../../../const/app_colors.dart';
+import '../const_widgets/shared/app_bar.dart';
 
 class CongratsPage extends StatelessWidget {
   const CongratsPage({Key? key}) : super(key: key);

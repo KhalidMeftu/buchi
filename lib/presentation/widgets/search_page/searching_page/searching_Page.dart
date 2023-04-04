@@ -6,8 +6,8 @@ import '../../../../const/app_strings.dart';
 import '../../../../const/custom_dd.dart';
 import '../../../../const/ui_helper.dart';
 import '../../../../routes/routes_manager.dart';
-import '../../common/adopt_me_button.dart';
-import '../../shared/app_bar.dart';
+import '../../const_widgets/adopt_me_button.dart';
+import '../../const_widgets/shared/app_bar.dart';
 
 class SearchingPage extends StatefulWidget {
   final bool isSearchingDog;

@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../const/app_colors.dart';
 import '../../../const/app_strings.dart';
 import '../../../routes/routes_manager.dart';
-import '../common/home_page/home_page_images_list.dart';
+import '../home_page/home_page/home_page_images_list.dart';
 
 class SearchListPage extends StatelessWidget {
   const SearchListPage({Key? key}) : super(key: key);

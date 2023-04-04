@@ -7,8 +7,8 @@ import '../../controller/local_database_bloc/pets_bloc.dart';
 import '../../../routes/routes_manager.dart';
 import '../../controller/local_database_bloc/pets_event.dart';
 import '../../controller/local_database_bloc/pets_state.dart';
-import '../common/search_page/search_results_image_list.dart';
-import '../shared/app_bar.dart';
+import '../const_widgets/search_page/search_results_image_list.dart';
+import '../const_widgets/shared/app_bar.dart';
 
 class SearchResultsPage extends StatefulWidget {
   final List<String> pets;

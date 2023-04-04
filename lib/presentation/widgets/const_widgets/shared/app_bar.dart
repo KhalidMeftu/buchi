@@ -2,7 +2,8 @@ import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 
-import '../../../const/app_strings.dart';
+import '../../../../const/app_strings.dart';
+
 
 Widget petsAppBar() {
   return AppBar(

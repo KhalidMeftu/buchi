@@ -81,6 +81,7 @@ class AppStrings {
   static const String cat ='Cats';
   static const String dog = 'Dogs';
   static const String other = 'Others';
+  static const String somethingwrong =' Something Went Wrong';
 
 
 

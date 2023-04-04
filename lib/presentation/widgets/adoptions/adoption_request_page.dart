@@ -1,11 +1,10 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:buchi/const/app_strings.dart';
-import 'package:buchi/presentation/widgets/shared/app_bar.dart';
 import 'package:flutter/material.dart';
-
-import '../../const/app_colors.dart';
-import '../../routes/routes_manager.dart';
-import 'common/adoptation_page/send_button.dart';
+import '../../../const/app_colors.dart';
+import '../../../routes/routes_manager.dart';
+import '../const_widgets/shared/app_bar.dart';
+import 'adoptation_page/send_button.dart';
 
 class AdoptationRequestPage extends StatefulWidget {
   const AdoptationRequestPage({Key? key}) : super(key: key);

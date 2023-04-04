@@ -43,3 +43,14 @@ double halfScreenHeight(BuildContext context) =>
 
 double thirdScreenHeight(BuildContext context) =>
     screenHeightFraction(context, dividedBy: 3);
+
+
+/// home screen image width
+double homeScreenImageWidth(BuildContext context)=>
+    screenWidthFraction(context, dividedBy:3);
+
+
+/// home screen image height
+double homeScreenImageHeight(BuildContext context)=>
+    screenWidthFraction(context, dividedBy:3);
+
