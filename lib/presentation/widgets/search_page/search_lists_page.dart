@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../const/app_colors.dart';
 import '../../../const/app_strings.dart';
-import '../../../routes/routes_manager.dart';
 import '../common/home_page/home_page_images_list.dart';
 
 class SearchListPage extends StatelessWidget {
@@ -20,45 +19,50 @@ class SearchListPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: (){
-
-                    print('Tapped');
+                padding: const EdgeInsets.all(18.0),
+                child: HomePagePetsList(
+                  imageUrl:
+                  'assets/images/dogs.png',
+                  petCategory: AppStrings.dogs,
+                  index: 0,
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const SearchingPage(isDog: true, isCat: false, isOther: false,)),
                     );
                   },
-                  child: HomePagePetsList(
-                    imageUrl:
-                    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62027413/6/?bust=1680422229',
-                    petCategory: AppStrings.dogs,
-                    index: 0,
-                    onTap: () {},
-                    description: AppStrings.dog_description,
-                  ),
+                  description: AppStrings.dog_description,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(18.0),
                 child: HomePagePetsList(
                   imageUrl:
-                  'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62020987/1/?bust=1680411625',
+                  'assets/images/cats.png',
                   petCategory: AppStrings.cats,
                   index: 3,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SearchingPage(isDog: false, isCat: true, isOther: false,)),
+                    );
+                  },
                   description: AppStrings.cat_description,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(18.0),
                 child: HomePagePetsList(
                   imageUrl:
-                  'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/62020987/1/?bust=1680411625',
+                  'assets/images/other.png',
                   petCategory: AppStrings.others,
                   index: 0,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SearchingPage(isDog: false, isCat: false, isOther: true,)),
+                    );
+                  },
                   description: AppStrings.other_description,
                 ),
               ),

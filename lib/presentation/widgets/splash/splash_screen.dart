@@ -67,7 +67,6 @@ class SplashScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: screenHeight(context) / 10),
               child: Center(
                 child: SearchButton(
-                  title: '',
                   onPressed: (){
                    goToHomePage(context);
                   }

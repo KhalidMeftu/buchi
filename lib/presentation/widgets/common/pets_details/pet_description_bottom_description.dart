@@ -7,7 +7,7 @@ import 'adopt_me_button.dart';
 
 class PetDetailsBottomView extends StatelessWidget {
   final String petName;
-  final String childrenStatus;
+  final bool childrenStatus;
   final String age;
   final String gender;
   final String size;
@@ -27,7 +27,7 @@ class PetDetailsBottomView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.appBackgroundColor,
-      height: halfScreenHeight(context),
+      //height: halfScreenHeight(context),
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
@@ -36,41 +36,61 @@ class PetDetailsBottomView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              petName,
-              style: PetsFont.largeRegular()
-                  .copyWith(color: AppColors.primaryColor),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+              child: Text(
+                petName,
+                style: PetsFont.largeRegular()
+                    .copyWith(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
+              ),
             ),
             spacedDivider,
-            Text(
-              childrenStatus,
-              style:
-                  PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+              child: Text(
+                childrenStatus.toString(),
+                style:
+                    PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+              ),
             ),
             spacedDivider,
-            Text(
-              'Age:$petName',
-              style:
-                  PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+              child: Text(
+                'Age:$age',
+                style:
+                    PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+              ),
             ),
             spacedDivider,
-            Text(
-              'Gender:$gender',
-              style:
-                  PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+              child: Text(
+                'Gender:$gender',
+                style:
+                    PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+              ),
             ),
             spacedDivider,
-            Text(
-              'Size:$size',
-              style:
-                  PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+              child: Text(
+                'Size:$size',
+                style:
+                    PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+              ),
             ),
             spacedDivider,
             Center(
                 child: AdoptMeButton(
-              title: AppStrings.adoptMe,
-              onPressed: () {},
-            ))
+                  onPressed: () {
+                /// go to user information filling
+              },
+            )),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10.0, top: 5.0),
+              child: Center(child: Text(AppStrings.adoptMe, style: PetsFont.largeRegular().copyWith(color: AppColors.primaryColor))),
+            )
           ],
         ),
       ),

@@ -9,13 +9,7 @@ const Widget verticalSpaceTiny = SizedBox(height: 5.0);
 const Widget verticalSpaceSmall = SizedBox(height: 10.0);
 const Widget verticalSpaceMedium = SizedBox(height: 25.0);
 
-Widget spacedDivider = Column(
-  children: const <Widget>[
-    verticalSpaceMedium,
-    Divider(color: Colors.blueGrey, height: 5.0),
-    verticalSpaceMedium,
-  ],
-);
+Widget spacedDivider = const Divider(color: Colors.blueGrey, height: 3.0);
 
 Widget loadingSpinner = const Center(
   child: SizedBox(

@@ -9,7 +9,7 @@ class AppStrings {
   static const String size = 'Size';
   static const String includePetsOnPetFinder= 'Include pets listed on petfinder too';
   static const String look = 'Look';
-  static const String sortBy = 'Sort By';
+  static const String sortBy = 'Sort By\n Nearest';
   static const String dogsAndOthers = 'Dogs,Others';
   static const String dogs = 'Dogs';
   static const String others = 'Others';
@@ -51,5 +51,19 @@ class AppStrings {
   static const List<String> ageList=[ageBaby, ageYoung,ageAdult,ageSenior];
   static const List<String> genderList=[genderMale, genderFemale];
   static const List<String> sizeList=[sizeSmall, sizeMedium, sizeLarge, sizeXLarge];
+
+  static const String queryAll= 'Query All';
+  static const String queryGoodWithChildren= 'Query GoodWithChildren';
+  static const String querySizeAgeAndGoodWithChildren= 'Query Size,Age and GoodWithChildren';
+  static const String queryAgeAndGoodWithChildren= 'Query Age and GoodWithChildren';
+  static const String queryGenderAgeAndGoodWithChildren= 'Query Gender,Age and GoodWithChildren';
+  static const String querySizeAndGoodWithChildren= 'Query Size and GoodWithChildren';
+  static const String queryGenderAndGoodWithChildren= 'Query Gender and GoodWithChildren';
+  static const String queryGenderSizeAndGoodWithChildren= 'Query Gender,Size and GoodWithChildren';
+
+  List<String> queryTypes=['Query All','Query GoodWithChildren',
+    'Query Size,Age and GoodWithChildren','Query Age and GoodWithChildren',
+    'Query Gender,Age and GoodWithChildren','Query Size and GoodWithChildren',
+    'Query Gender and GoodWithChildren', 'QueryGender,size and GoodWithChildren'];
 
 }

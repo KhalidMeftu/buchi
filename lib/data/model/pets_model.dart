@@ -1,3 +1,4 @@
+import 'dart:convert';
 import '../../domain/entity/pets.dart';
 
 class PetsModel extends Pets{
@@ -10,6 +11,7 @@ class PetsModel extends Pets{
         required super.photos,
         required super.good_with_children,
         required super.source});
+
   factory PetsModel.fromJson(Map<String, dynamic> json)=>
       PetsModel(type:json['type'],
           gender:json['gender'],
@@ -20,4 +22,33 @@ class PetsModel extends Pets{
           source:json['source']);
 
 
+          Map<String, dynamic> toJson() => {
+            "type": type,
+            "gender": gender,
+            "size": size,
+            "age": age,
+            "photos": List<dynamic>.from(photos.map((x) => x.toJson())),
+            "good_with_children": good_with_children,
+            "source": source,
+          };
+
+
+
+}
+
+
+class Photo {
+  Photo({
+    this.url,
+  });
+
+  String? url;
+
+  factory Photo.fromJson(Map<String, dynamic> json) => Photo(
+    url: json["url"]??'',
+  );
+
+  Map<String, dynamic> toJson() => {
+    "url": url??'',
+  };
 }

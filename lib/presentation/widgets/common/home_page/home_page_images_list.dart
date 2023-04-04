@@ -1,9 +1,7 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
-import '../../search_page/searching_page/searching_Page.dart';
 
 class HomePagePetsList extends StatelessWidget {
   final String imageUrl;
@@ -25,13 +23,7 @@ class HomePagePetsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-       if(index==0)
-         {
-           Navigator.push(
-             context,
-             MaterialPageRoute(builder: (context) => const SearchingPage(isDog: true, isCat: false, isOther: false,)),
-           );
-         }
+       onTap.call();
       },
       child: SizedBox(
         height: 170,
@@ -47,44 +39,45 @@ class HomePagePetsList extends StatelessWidget {
               if (index % 2 == 0) ...[
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
+                  child: Image.asset(
                     imageUrl,
                     fit: BoxFit.fitHeight,
-                    //width: 100,
+                    height: 170,
+                    //width: 130,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SizedBox(
-                    width: 200,
-                    child: Column(
-                      children: [
-                        Text(
-                          petCategory,
+                SizedBox(
+                  width: 200,
+                  child: Column(
+                    children: [
+                      Text(
+                        petCategory,
+                        style: PetsFont.largeMedium().copyWith(
+                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Flexible(
+                        child: Text(
+                          description,
                           style: PetsFont.largeMedium().copyWith(
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Flexible(
-                          child: Text(
-                            description,
-                            style: PetsFont.largeMedium().copyWith(
-                                color: AppColors.blackColor,
-                                fontSize: FontSize.s12),
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.justify,
-                          ),
-                        ),
-                        Text(
-                          AppStrings.detail_description,
-                          style: PetsFont.largeMedium().copyWith(
-                              color: AppColors.textColor3,
+                              color: AppColors.blackColor,
                               fontSize: FontSize.s12),
-                        )
-                      ],
-                    ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                          textDirection: TextDirection.rtl,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Text(
+                        AppStrings.detail_description,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 4,
+                        textAlign: TextAlign.center,
+                        style: PetsFont.largeMedium().copyWith(
+                            color: AppColors.textColor3,
+                            fontSize: FontSize.s12),
+                      )
+                    ],
                   ),
                 ),
               ] else ...[
@@ -124,9 +117,11 @@ class HomePagePetsList extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
+                  child: Image.asset(
                     imageUrl,
                     fit: BoxFit.fitHeight,
+                    height: 170,
+                    width: 130,
                     //width: 100,
                   ),
                 ),

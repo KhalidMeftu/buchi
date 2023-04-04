@@ -1,5 +1,8 @@
 
+import '../../data/model/pets_model.dart';
+
 class Pets {
+  int? id;
   final String type;
   final String gender;
   final String size;
@@ -16,19 +19,5 @@ class Pets {
       required this.photos,
       required this.good_with_children,
       required this.source});
-
-}
-
-class Photo {
-  Photo({
-    required this.url,
-  });
-
-  String? url;
-
-  factory Photo.fromJson(Map<String, dynamic> json) => Photo(
-    url: json["url"]??'',
-  );
-
 
 }

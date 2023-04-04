@@ -2,14 +2,16 @@ import 'package:buchi/const/app_colors.dart';
 import 'package:buchi/data/data_source/remote_data_source.dart';
 import 'package:buchi/domain/repository/base_pets_repository.dart';
 import 'package:buchi/domain/usecases/get_pets_list.dart';
+import 'package:buchi/local_database/symbatest/appBloc/fruits_bloc.dart';
 import 'package:buchi/presentation/widgets/splash/splash_screen.dart';
 import 'package:buchi/routes/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'const/service/service_locator.dart';
 import 'data/repository/pets_repository.dart';
 import 'domain/entity/pets.dart';
 
-void main() async{
+void main() async {
   ServicesLocator().init();
   runApp(const MyApp());
 }
@@ -20,15 +22,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashScreenRoute,
-      //title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-      ),
-      //home: const SplashScreen() //const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return
+      BlocProvider(
+        create: (context) => PetsLocalDbBloc(),
+        child: MaterialApp(
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.splashScreenRoute,
+          //title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.brown,
+          ),
+          //home: const SplashScreen() //const MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
+      );
   }
 }
 
@@ -104,7 +110,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headlineMedium,
             ),
           ],
         ),
