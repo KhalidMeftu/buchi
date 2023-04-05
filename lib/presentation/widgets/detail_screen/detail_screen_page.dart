@@ -39,7 +39,7 @@ class DetailScreenPage extends StatelessWidget {
               color: AppColors.appBackgroundColor,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ImageSlider(imagesList: imageList),
+                child: ImageSlider(imagesList: imageList.isEmpty?[]:imageList),
               )),
           PetDetailsBottomView(
             petName: type,

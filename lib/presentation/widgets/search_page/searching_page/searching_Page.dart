@@ -1,6 +1,7 @@
 import 'package:buchi/const/app_font.dart';
 import 'package:flutter/material.dart';
 import 'package:multiselect/multiselect.dart';
+
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
 import '../../../../const/custom_dd.dart';
@@ -14,10 +15,11 @@ class SearchingPage extends StatefulWidget {
   final bool isSearchingCat;
   final bool isSearchingOther;
 
-  const SearchingPage({Key? key,
-    required this.isSearchingDog,
-    required this.isSearchingCat,
-    required this.isSearchingOther})
+  const SearchingPage(
+      {Key? key,
+      required this.isSearchingDog,
+      required this.isSearchingCat,
+      required this.isSearchingOther})
       : super(key: key);
 
   @override
@@ -37,31 +39,31 @@ class _SearchingPageState extends State<SearchingPage> {
   List<String> selectedPetTypeLiveData = [];
 
   bool isSearchOnlineOn = false;
-  bool isGoodWChildrenSelected=false;
-  String selectedAge='';
-  String selectedGender='';
-  String selectedSize='';
+  bool isGoodWChildrenSelected = false;
+  String selectedAge = '';
+  String selectedGender = '';
+  String selectedSize = '';
 
   @override
   void initState() {
-       setSelectedValues();
+    setSelectedValues();
     super.initState();
   }
 
   void setSelectedValues() {
-     if (widget.isSearchingCat == true) {
+    if (widget.isSearchingCat == true) {
       selectedPetType.add(AppStrings.cats);
       selectedPetTypeLiveData.add(AppStrings.singluracat);
     }
     if (widget.isSearchingDog == true) {
-      selectedPetType.add(AppStrings.dogs,);
+      selectedPetType.add(
+        AppStrings.dogs,
+      );
       selectedPetTypeLiveData.add(AppStrings.singulardog);
-
     }
     if (widget.isSearchingOther == true) {
       selectedPetType.add(AppStrings.others);
       selectedPetTypeLiveData.add(AppStrings.singularother);
-
     }
   }
 
@@ -77,8 +79,7 @@ class _SearchingPageState extends State<SearchingPage> {
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60), child: petsAppBar()),
-      body:
-      ListView(
+      body: ListView(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,43 +109,40 @@ class _SearchingPageState extends State<SearchingPage> {
               ),
               Flexible(
                   child: Padding(
-                    padding: const EdgeInsets.all(22.0),
-                    child: SizedBox(
-                      width: 170,
-                      child: Card(
-                        color: AppColors.appBackgroundColor,
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton(
-                            isExpanded: false,
-                            value: true,
-                            items: [].map((item) {
-                              return DropdownMenuItem(
-                                value: item['item_id'],
-                                child: SizedBox(
-                                  width: 150, //expand here
-                                  child: Text(
-                                    item['item_name'],
-                                    textAlign: TextAlign.end,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (value) {},
-                            hint: const Text(
-                              AppStrings.sortBy,
-                              style: TextStyle(color: Colors.grey),
-                              textAlign: TextAlign.end,
+                padding: const EdgeInsets.all(22.0),
+                child: SizedBox(
+                  width: 170,
+                  child: Card(
+                    color: AppColors.appBackgroundColor,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: false,
+                        value: true,
+                        items: [].map((item) {
+                          return DropdownMenuItem(
+                            value: item['item_id'],
+                            child: SizedBox(
+                              width: 150, //expand here
+                              child: Text(
+                                item['item_name'],
+                                textAlign: TextAlign.end,
+                              ),
                             ),
-                            style: const TextStyle(
-                                color: Colors.black,
-                                decorationColor: Colors.red),
-                          ),
+                          );
+                        }).toList(),
+                        onChanged: (value) {},
+                        hint: const Text(
+                          AppStrings.sortBy,
+                          style: TextStyle(color: Colors.grey),
+                          textAlign: TextAlign.end,
                         ),
+                        style: const TextStyle(
+                            color: Colors.black, decorationColor: Colors.red),
                       ),
                     ),
-                  )
-
-              ),
+                  ),
+                ),
+              )),
             ],
           ),
 
@@ -152,10 +150,10 @@ class _SearchingPageState extends State<SearchingPage> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
                 child: Text(
-                  AppStrings.goodWithChildren,
-                  style:
+              AppStrings.goodWithChildren,
+              style:
                   PetsFont.largeMedium().copyWith(color: AppColors.blackColor),
-                )),
+            )),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -165,21 +163,16 @@ class _SearchingPageState extends State<SearchingPage> {
               height: 60,
               child: CustomDropdown<int>(
                 onChange: (int value, int index) {
-
-
-
-                 if(index==0)
-                   {
-                     setState(() {
-                       isGoodWChildrenSelected=true;
-                     });
-                   }
-                 if(index==1)
-                 {
-                   setState(() {
-                     isGoodWChildrenSelected=false;
-                   });
-                 }
+                  if (index == 0) {
+                    setState(() {
+                      isGoodWChildrenSelected = true;
+                    });
+                  }
+                  if (index == 1) {
+                    setState(() {
+                      isGoodWChildrenSelected = false;
+                    });
+                  }
                 },
                 dropdownButtonStyle: const DropdownButtonStyle(
                   //width: double.infinity,
@@ -197,15 +190,14 @@ class _SearchingPageState extends State<SearchingPage> {
                     .asMap()
                     .entries
                     .map(
-                      (item) =>
-                      DropdownItem<int>(
+                      (item) => DropdownItem<int>(
                         value: item.key + 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(item.value),
                         ),
                       ),
-                )
+                    )
                     .toList(),
                 child: Text(
                   '',
@@ -219,10 +211,10 @@ class _SearchingPageState extends State<SearchingPage> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
                 child: Text(
-                  AppStrings.age,
-                  style:
+              AppStrings.age,
+              style:
                   PetsFont.largeMedium().copyWith(color: AppColors.blackColor),
-                )),
+            )),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -232,30 +224,25 @@ class _SearchingPageState extends State<SearchingPage> {
               height: 60,
               child: CustomDropdown<int>(
                 onChange: (int value, int index) {
-
-                  if(index==0)
-                  {
+                  if (index == 0) {
                     setState(() {
-                      selectedAge=AppStrings.ageBaby;
+                      selectedAge = AppStrings.ageBaby;
                     });
                   }
-                  if(index==1)
-                  {
+                  if (index == 1) {
                     setState(() {
-                      selectedAge=AppStrings.ageYoung;
+                      selectedAge = AppStrings.ageYoung;
                     });
                   }
 
-                  if(index==2)
-                  {
+                  if (index == 2) {
                     setState(() {
-                      selectedAge=AppStrings.ageAdult;
+                      selectedAge = AppStrings.ageAdult;
                     });
                   }
-                  if(index==3)
-                  {
+                  if (index == 3) {
                     setState(() {
-                      selectedAge=AppStrings.ageSenior;
+                      selectedAge = AppStrings.ageSenior;
                     });
                   }
                 },
@@ -275,15 +262,14 @@ class _SearchingPageState extends State<SearchingPage> {
                     .asMap()
                     .entries
                     .map(
-                      (item) =>
-                      DropdownItem<int>(
+                      (item) => DropdownItem<int>(
                         value: item.key + 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(item.value),
                         ),
                       ),
-                )
+                    )
                     .toList(),
                 child: const Text(
                   '',
@@ -298,10 +284,10 @@ class _SearchingPageState extends State<SearchingPage> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
                 child: Text(
-                  AppStrings.gender,
-                  style:
+              AppStrings.gender,
+              style:
                   PetsFont.largeMedium().copyWith(color: AppColors.blackColor),
-                )),
+            )),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -311,22 +297,16 @@ class _SearchingPageState extends State<SearchingPage> {
               height: 60,
               child: CustomDropdown<int>(
                 onChange: (int value, int index) {
-
-                  if(index==0)
-                  {
+                  if (index == 0) {
                     setState(() {
-                      selectedGender =AppStrings.genderMale;
+                      selectedGender = AppStrings.genderMale;
                     });
                   }
-                  if(index==1)
-                  {
+                  if (index == 1) {
                     setState(() {
-                      selectedGender =AppStrings.genderFemale;
+                      selectedGender = AppStrings.genderFemale;
                     });
                   }
-
-
-
                 },
                 dropdownButtonStyle: const DropdownButtonStyle(
                   width: 170,
@@ -344,15 +324,14 @@ class _SearchingPageState extends State<SearchingPage> {
                     .asMap()
                     .entries
                     .map(
-                      (item) =>
-                      DropdownItem<int>(
+                      (item) => DropdownItem<int>(
                         value: item.key + 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(item.value),
                         ),
                       ),
-                )
+                    )
                     .toList(),
                 child: const Text(
                   '',
@@ -366,10 +345,10 @@ class _SearchingPageState extends State<SearchingPage> {
             padding: const EdgeInsets.all(8.0),
             child: Center(
                 child: Text(
-                  AppStrings.size,
-                  style:
+              AppStrings.size,
+              style:
                   PetsFont.largeMedium().copyWith(color: AppColors.blackColor),
-                )),
+            )),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -381,30 +360,25 @@ class _SearchingPageState extends State<SearchingPage> {
                 onChange: (int value, int index) {
                   //sizeSmall, sizeMedium, sizeLarge, sizeXLarge
 
-
-                  if(index==0)
-                  {
+                  if (index == 0) {
                     setState(() {
-                      selectedSize=AppStrings.sizeSmall;
+                      selectedSize = AppStrings.sizeSmall;
                     });
                   }
-                  if(index==1)
-                  {
+                  if (index == 1) {
                     setState(() {
-                      selectedSize=AppStrings.sizeMedium;
+                      selectedSize = AppStrings.sizeMedium;
                     });
                   }
 
-                  if(index==2)
-                  {
+                  if (index == 2) {
                     setState(() {
-                      selectedSize=AppStrings.sizeLarge;
+                      selectedSize = AppStrings.sizeLarge;
                     });
                   }
-                  if(index==3)
-                  {
+                  if (index == 3) {
                     setState(() {
-                      selectedSize=AppStrings.sizeXLarge;
+                      selectedSize = AppStrings.sizeXLarge;
                     });
                   }
                 },
@@ -424,15 +398,14 @@ class _SearchingPageState extends State<SearchingPage> {
                     .asMap()
                     .entries
                     .map(
-                      (item) =>
-                      DropdownItem<int>(
+                      (item) => DropdownItem<int>(
                         value: item.key + 1,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(item.value),
                         ),
                       ),
-                )
+                    )
                     .toList(),
                 child: const Text(
                   '',
@@ -471,7 +444,15 @@ class _SearchingPageState extends State<SearchingPage> {
                 children: [
                   SearchButton(onPressed: () {
                     Navigator.pushNamed(context, Routes.searchResultsRoute,
-                        arguments: [selectedPetType,selectedPetTypeLiveData, isGoodWChildrenSelected, selectedAge, selectedGender, selectedSize,isSearchOnlineOn]);
+                        arguments: [
+                          selectedPetType,
+                          selectedPetTypeLiveData,
+                          isGoodWChildrenSelected,
+                          selectedAge,
+                          selectedGender,
+                          selectedSize,
+                          isSearchOnlineOn
+                        ]);
                   }),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

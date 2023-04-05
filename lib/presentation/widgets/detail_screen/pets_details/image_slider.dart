@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../const/ui_helper.dart';
 import '../../../../data/model/pets_model.dart';
 
@@ -10,13 +11,12 @@ class ImageSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return imagesList.isEmpty
-        ?
-    Image.asset('assets/images/place_holder.png',
-      fit: BoxFit.cover,
-
-    )
-        :
+    return imagesList.length<=1
+        ? Image.asset(
+            'assets/images/place_holder.png',
+            fit: BoxFit.cover,
+          )
+        : // Text((imagesList.length).toString());
     CarouselSlider(
             options: CarouselOptions(
               height: halfScreenHeight(context),
@@ -40,5 +40,6 @@ class ImageSlider extends StatelessWidget {
                     )))
                 .toList(),
           );
+
   }
 }

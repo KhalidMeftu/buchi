@@ -89,6 +89,9 @@ class AppStrings {
   static const String singulardog = 'Dog';
   static const String singularother = 'Other';
 
+  static const String notGoodwithChildren= 'Not Good with Children!';
+  static const String GoodwithChildren= 'Good with Children!';
+
 
 
 

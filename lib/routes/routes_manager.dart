@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../const/app_strings.dart';
 import '../presentation/widgets/adoptions/adoption_request_page.dart';
 import '../presentation/widgets/congrats_page/congrats_page.dart';
@@ -24,7 +23,9 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.splashScreenRoute:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        return MaterialPageRoute(
+            builder: (_) =>
+                 const SplashScreen());
 
       case Routes.homePageRoute:
         return MaterialPageRoute(builder: (_) => const HomePage());
@@ -42,12 +43,14 @@ class RouteGenerator {
         List<dynamic> args = routeSettings.arguments as List<dynamic>;
         return MaterialPageRoute(
             builder: (_) => SearchResultsPage(
-                pets: args[0],
-                petsForLiveData: args[1],
-                goodWithChildrenSelected: args[2],
-                ageSelected: args[3],
-                genderSelected: args[4],
-                sizeSelected: args[5], canCheckWeb: args[6],));
+                  pets: args[0],
+                  petsForLiveData: args[1],
+                  goodWithChildrenSelected: args[2],
+                  ageSelected: args[3],
+                  genderSelected: args[4],
+                  sizeSelected: args[5],
+                  canCheckWeb: args[6],
+                ));
 
       case Routes.petdetailPageRoute:
         List<dynamic> args = routeSettings.arguments as List<dynamic>;
@@ -61,7 +64,7 @@ class RouteGenerator {
                   imageList: args[5],
                 ));
       case Routes.adoptPageRoute:
-        return MaterialPageRoute(builder: (_)=> const AdoptationRequestPage());
+        return MaterialPageRoute(builder: (_) => const AdoptationRequestPage());
       case Routes.congratsPageRoute:
         return MaterialPageRoute(builder: (_) => const CongratsPage());
 

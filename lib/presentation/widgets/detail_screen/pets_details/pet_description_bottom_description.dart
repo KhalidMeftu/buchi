@@ -47,10 +47,14 @@ class PetDetailsBottomView extends StatelessWidget {
             spacedDivider,
             Padding(
               padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-              child: Text(
-                childrenStatus.toString(),
+              child: childrenStatus?Text(
+                AppStrings.goodWithChildren,
                 style:
                     PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
+              ):Text(
+                AppStrings.notGoodwithChildren,
+                style:
+                PetsFont.smallMedium().copyWith(color: AppColors.blackColor),
               ),
             ),
             spacedDivider,
