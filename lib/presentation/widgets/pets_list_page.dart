@@ -3,12 +3,11 @@ import 'package:buchi/const/service/service_locator.dart';
 import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../const/app_colors.dart';
 import '../../const/app_strings.dart';
 import '../../routes/routes_manager.dart';
 import '../controller/network_bloc/internet_bloc.dart';
-import 'home_page/home_page/home_page_live_images_list.dart';
+import 'home_screen/home_page/home_page_live_images_list.dart';
 
 class PetsListPage extends StatelessWidget {
   const PetsListPage({Key? key}) : super(key: key);

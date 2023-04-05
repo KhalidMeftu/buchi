@@ -4,7 +4,7 @@ import 'package:multiselect/multiselect.dart';
 
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
-import '../../../../const/custom_dd.dart';
+import '../../../../const/custom_dropdown.dart';
 import '../../../../const/ui_helper.dart';
 import '../../../../routes/routes_manager.dart';
 import '../../const_widgets/adopt_me_button.dart';

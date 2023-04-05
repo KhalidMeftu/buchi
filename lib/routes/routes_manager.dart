@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../const/app_strings.dart';
 import '../presentation/widgets/adoptions/adoption_request_page.dart';
-import '../presentation/widgets/congrats_page/congrats_page.dart';
+import '../presentation/widgets/congrats_screen/congrats_page.dart';
 import '../presentation/widgets/detail_screen/detail_screen_page.dart';
-import '../presentation/widgets/home_page/home_page.dart';
+import '../presentation/widgets/home_screen/home_page.dart';
 import '../presentation/widgets/search_page/search_results_page.dart';
 import '../presentation/widgets/search_page/searching_page/searching_Page.dart';
-import '../presentation/widgets/splash_detail/splash_screen.dart';
+import '../presentation/widgets/splash_screen/splash_screen.dart';
 
 class Routes {
   static const String splashScreenRoute = '/';
