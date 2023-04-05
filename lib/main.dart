@@ -1,3 +1,4 @@
+import 'package:buchi/presentation/controller/live_data_filter_bloc/live_data_filter_bloc.dart';
 import 'package:buchi/presentation/controller/local_database_bloc/pets_bloc.dart';
 import 'package:buchi/presentation/controller/network_bloc/network_connectivity_bloc.dart';
 import 'package:buchi/presentation/controller/pets_bloc/pets_list_bloc.dart';
@@ -29,6 +30,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(
               create: (context) =>
                   PetsListBloc(sLocator())..add(GetPetsListEvent())),
+
+          BlocProvider(
+            create: (context) => LiveDataFilterBloc(sLocator()),
+          ),
         ],
         child: MaterialApp(
           onGenerateRoute: RouteGenerator.getRoute,

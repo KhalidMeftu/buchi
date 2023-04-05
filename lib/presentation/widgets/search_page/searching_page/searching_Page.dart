@@ -34,6 +34,7 @@ class _SearchingPageState extends State<SearchingPage> {
   List<String> dropDownValuesLocations = [];
 
   List<String> selectedPetType = [];
+  List<String> selectedPetTypeLiveData = [];
 
   bool isSearchOnlineOn = false;
   bool isGoodWChildrenSelected=false;
@@ -50,12 +51,17 @@ class _SearchingPageState extends State<SearchingPage> {
   void setSelectedValues() {
      if (widget.isSearchingCat == true) {
       selectedPetType.add(AppStrings.cats);
+      selectedPetTypeLiveData.add(AppStrings.singluracat);
     }
     if (widget.isSearchingDog == true) {
       selectedPetType.add(AppStrings.dogs,);
+      selectedPetTypeLiveData.add(AppStrings.singulardog);
+
     }
     if (widget.isSearchingOther == true) {
       selectedPetType.add(AppStrings.others);
+      selectedPetTypeLiveData.add(AppStrings.singularother);
+
     }
   }
 
@@ -465,7 +471,7 @@ class _SearchingPageState extends State<SearchingPage> {
                 children: [
                   SearchButton(onPressed: () {
                     Navigator.pushNamed(context, Routes.searchResultsRoute,
-                        arguments: [selectedPetType, isGoodWChildrenSelected, selectedAge, selectedGender, selectedSize,isSearchOnlineOn]);
+                        arguments: [selectedPetType,selectedPetTypeLiveData, isGoodWChildrenSelected, selectedAge, selectedGender, selectedSize,isSearchOnlineOn]);
                   }),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

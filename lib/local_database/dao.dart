@@ -91,7 +91,6 @@ class PetsDAO {
           }).where((element) {
             return element.type == 'Cat' || element.type == 'Dog' || element.type == 'Other' &&
                 element.good_with_children == gwch &&
-                element.size==size &&
                 element.age==age;
           }).toList();
         }

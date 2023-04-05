@@ -11,7 +11,7 @@ class GetPetsListUseCase{
     return await repository.getPetsList();
   }
 
-  Future<List<Pets>> excuteSearch(List<String> selectedPets, bool gwc, String age, String gender, String size) async{
+   excuteSearch(List<String> selectedPets, bool gwc, String age, String gender, String size) async{
     return await repository.searchPets(selectedPets,gwc,age,gender,size);
   }
 

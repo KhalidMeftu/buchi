@@ -16,13 +16,24 @@ class LiveDataFilterBloc extends Bloc<LiveDataFilterEvent, LiveDataFilterState> 
     on<FilterListEvent>((event, emit) async {
       // TODO: implement event handler
       emit(LiveDataFilterLoading());
+
+      print('Selected Pet is');
+      print(event.selectedPets[0]);
       final result= await getPetsListUseCase.excuteSearch(event.selectedPets, event.gwc,
           event.age, event.gender, event.size);
 
       /// check if result is empty
+      ///
+
+      print(result);
+      if (result.toString() == '[]' && result == null) {
+        emit(LiveDataResponseEmpty());
+      } else {
+        emit(LiveDataFilterd(result));
+      }
 
 
-      emit(LiveDataFilterd(result));
+      //emit(LiveDataFilterd(result));
     });
   }
 }

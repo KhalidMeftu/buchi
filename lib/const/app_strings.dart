@@ -85,6 +85,10 @@ class AppStrings {
   static const String locationBased ='I was thinking to implement location based search';
   static const String noInternate ='No Internet Connection';
 
+  static const String singluracat ='Cat';
+  static const String singulardog = 'Dog';
+  static const String singularother = 'Other';
+
 
 
 

@@ -43,10 +43,11 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => SearchResultsPage(
                 pets: args[0],
-                goodWithChildrenSelected: args[1],
-                ageSelected: args[2],
-                genderSelected: args[3],
-                sizeSelected: args[4], canCheckWeb: args[5],));
+                petsForLiveData: args[1],
+                goodWithChildrenSelected: args[2],
+                ageSelected: args[3],
+                genderSelected: args[4],
+                sizeSelected: args[5], canCheckWeb: args[6],));
 
       case Routes.petdetailPageRoute:
         List<dynamic> args = routeSettings.arguments as List<dynamic>;

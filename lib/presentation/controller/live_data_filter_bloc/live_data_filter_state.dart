@@ -19,3 +19,10 @@ class LiveDataFilterd extends LiveDataFilterState {
   @override
   List<Object> get props => [pets];
 }
+
+class LiveDataResponseEmpty extends LiveDataFilterState{
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+
+}
