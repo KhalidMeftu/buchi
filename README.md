@@ -1,16 +1,13 @@
-# buchi
 
-A new Flutter project.
+# Buchi Pet Finder App Coding Challange
 
-## Getting Started
+Welcome to the pet finder app called Buchi. Using this app, customers can search for pets (cats , dogs , birds etc…) that have no owners and request to adopt them. 
+We currently store our own pet list in our local database. but we also refer to a third party pet finder app called petfinder. So when customers search for pets in our app, the system will search both the local database and petfinder app using their api. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demo
+
+Insert gif or link to demo
+
