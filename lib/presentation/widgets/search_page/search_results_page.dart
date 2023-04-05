@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+
 import '../../../const/app_colors.dart';
+import '../../../const/app_font.dart';
 import '../../../const/app_strings.dart';
 import '../../../routes/routes_manager.dart';
 import '../../controller/live_data_filter_bloc/live_data_filter_bloc.dart';
 import '../../controller/local_database_bloc/pets_bloc.dart';
 import '../../controller/local_database_bloc/pets_event.dart';
 import '../../controller/local_database_bloc/pets_state.dart';
+import '../../controller/network_bloc/internet_bloc.dart';
 import '../const_widgets/search_page/search_results_image_list.dart';
 import '../const_widgets/shared/app_bar.dart';
 
@@ -23,7 +26,7 @@ class SearchResultsPage extends StatefulWidget {
   const SearchResultsPage(
       {Key? key,
       required this.pets,
-        required this.petsForLiveData,
+      required this.petsForLiveData,
       required this.goodWithChildrenSelected,
       required this.ageSelected,
       required this.genderSelected,
@@ -49,15 +52,14 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
         widget.ageSelected,
         widget.genderSelected,
         widget.sizeSelected));
-    if(widget.canCheckWeb)
-      {
-        _liveDataFilterBloc.add(FilterListEvent(
-            widget.petsForLiveData,
-            widget.goodWithChildrenSelected,
-            widget.ageSelected,
-            widget.genderSelected,
-            widget.sizeSelected));
-      }
+    if (widget.canCheckWeb) {
+      _liveDataFilterBloc.add(FilterListEvent(
+          widget.petsForLiveData,
+          widget.goodWithChildrenSelected,
+          widget.ageSelected,
+          widget.genderSelected,
+          widget.sizeSelected));
+    }
     super.initState();
   }
 
@@ -96,7 +98,28 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
                         localDatabaseSearch(),
 
                         /// from petfinder
-                        liveDatabaseSearch(),
+                        BlocBuilder<InternetBloc, InternetState>(
+                          builder: (context, state) {
+                            if (state is ConnectedState) {
+                              return liveDatabaseSearch();
+                            }
+
+                            if (state is NotConnectedState) {
+                              return Center(
+                                  child: Text(
+                                AppStrings.noInternate,
+                                style: PetsFont.largeMedium()
+                                    .copyWith(color: AppColors.primaryColor),
+                              ));
+                            }
+                            return Center(
+                                child: Text(
+                              AppStrings.noInternate,
+                              style: PetsFont.largeMedium()
+                                  .copyWith(color: AppColors.primaryColor),
+                            ));
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -156,7 +179,7 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
       builder: (context, state) {
         if (state is LiveDataFilterLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: SizedBox( child: CircularProgressIndicator()),
           );
         } else if (state is LiveDataFilterd) {
           return ListView.builder(

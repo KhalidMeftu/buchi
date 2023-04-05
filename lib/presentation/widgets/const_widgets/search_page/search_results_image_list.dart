@@ -40,17 +40,10 @@ class SearchResultsImagesList extends StatelessWidget {
                     : SizedBox(
                         height: thirdScreenHeight(context),
                         child:
-                        /*Image.network(
-                          img.url.toString(),
-                          fit: BoxFit.cover,
-                          width: double.infinity,
 
-                          // width: double.infinity,
-                          //height: 240,
-                        ),*/
                         CachedNetworkImage(
                           imageUrl: img.url.toString(),
-                          placeholder: (context, url) => const SizedBox(height:30, width:30,child: CircularProgressIndicator()),
+                          placeholder: (context, url) => const Center(child: SizedBox(height:30, width:30,child: CircularProgressIndicator())),
                           errorWidget: (context, url, error) => const Icon(Icons.error),
                           fit: BoxFit.cover,
                           width: double.infinity,

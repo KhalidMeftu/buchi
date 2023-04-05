@@ -2,10 +2,8 @@ import 'package:buchi/presentation/widgets/detail_screen/pets_details/image_slid
 import 'package:buchi/presentation/widgets/detail_screen/pets_details/pet_description_bottom_description.dart';
 import 'package:flutter/material.dart';
 import '../../../const/app_colors.dart';
-import '../../../const/ui_helper.dart';
 import '../../../data/model/pets_model.dart';
 import '../../../routes/routes_manager.dart';
-import '../adoptions/adoption_request_page.dart';
 import '../const_widgets/shared/app_bar.dart';
 
 class DetailScreenPage extends StatelessWidget {

@@ -52,7 +52,7 @@ class HomePageLivePetsList extends StatelessWidget {
                   child:
                   CachedNetworkImage(
                     imageUrl: imageUrl,
-                    placeholder: (context, url) => const SizedBox(height:30, width:30,child: CircularProgressIndicator()),
+                    placeholder: (context, url) => const Center(child: SizedBox(height:30, width:30,child: CircularProgressIndicator())),
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                     fit: BoxFit.cover,
                     height: homeScreenImageHeight(context),

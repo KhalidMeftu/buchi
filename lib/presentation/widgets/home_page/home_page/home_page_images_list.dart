@@ -120,14 +120,16 @@ class HomePagePetsList extends StatelessWidget {
                     ),
                   ),
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    imageUrl,
-                    fit: BoxFit.fitHeight,
-                    height: homeScreenImageHeight(context),
-                    width: homeScreenImageWidth(context),
-                    //width: 100,
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      imageUrl,
+                      fit: BoxFit.fitHeight,
+                      height: homeScreenImageHeight(context),
+                      width: homeScreenImageWidth(context),
+                      //width: 100,
+                    ),
                   ),
                 ),
               ]
