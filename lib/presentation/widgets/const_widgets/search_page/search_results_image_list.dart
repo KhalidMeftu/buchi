@@ -1,4 +1,5 @@
 import 'package:buchi/const/app_font.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../const/app_colors.dart';
 import '../../../../const/ui_helper.dart';
@@ -38,13 +39,21 @@ class SearchResultsImagesList extends StatelessWidget {
                       )
                     : SizedBox(
                         height: thirdScreenHeight(context),
-                        child: Image.network(
+                        child:
+                        /*Image.network(
                           img.url.toString(),
                           fit: BoxFit.cover,
                           width: double.infinity,
 
                           // width: double.infinity,
                           //height: 240,
+                        ),*/
+                        CachedNetworkImage(
+                          imageUrl: img.url.toString(),
+                          placeholder: (context, url) => const SizedBox(height:30, width:30,child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                          fit: BoxFit.cover,
+                          width: double.infinity,
                         ),
                       ),
               ],

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'const/service/service_locator.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   ServicesLocator().init();
   runApp(const MyApp());
 }

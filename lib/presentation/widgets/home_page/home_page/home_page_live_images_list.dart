@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../const/app_colors.dart';
 import '../../../../const/app_strings.dart';
 import '../../../../const/ui_helper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 
 class HomePageLivePetsList extends StatelessWidget {
   final String imageUrl;
@@ -47,8 +49,11 @@ class HomePageLivePetsList extends StatelessWidget {
                 ):
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    imageUrl,
+                  child:
+                  CachedNetworkImage(
+                    imageUrl: imageUrl,
+                    placeholder: (context, url) => const SizedBox(height:30, width:30,child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                     fit: BoxFit.cover,
                     height: homeScreenImageHeight(context),
                     width: homeScreenImageWidth(context),

@@ -2,10 +2,14 @@ import 'package:buchi/const/app_service.dart';
 import 'package:buchi/data/model/pets_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../const/app_strings.dart';
+import '../../const/service/service_locator.dart';
 import '../../domain/entity/pets.dart';
 import '../../local_database/dao.dart';
+import '../../shared_prefrences_database/shared_prefs_services.dart';
 
 abstract class BaseRemoteDataSource {
   Future<List<Pets>> getPetsList();
@@ -20,17 +24,57 @@ class RemoteDataSource implements BaseRemoteDataSource {
     try {
       var response = await Dio().get('${AppService.baseUrl}?limit=100');
       if (response.statusCode == 200) {
-        (response.data['pets'] as List).map((e) async {
-          try {
-            final PetsDAO pestDao = PetsDAO();
+        var storageService = sLocator<LocalStorageServices>();
+        var downloadStatus= storageService.getDownloadStatus();
 
-            pestDao.insert(PetsModel.fromJson(e));
+        if(downloadStatus==null)
+        {
+          (response.data['pets'] as List).map((e) async {
+            try {
+              /// check if we download first from sharedprefs
+                print('No data i will download');
+                final PetsDAO pestDao = PetsDAO();
+                pestDao.insert(PetsModel.fromJson(e));
+                var preferences = await SharedPreferences.getInstance();
+                preferences.setString('status', 'downloaded');
+
+
+            } catch (e) {
+              if (kDebugMode) {
+                print('exception $e');
+              }
+            }
+          }).toList();
+
+        }
+        else if(downloadStatus.toString().isNotEmpty) {
+          print('No need to download');
+
+        }
+        /*(response.data['pets'] as List).map((e) async {
+          try {
+            /// check if we download first from sharedprefs
+
+            if(downloadStatus.toString().isEmpty && downloadStatus==null)
+              {
+                print('No data i will download');
+                final PetsDAO pestDao = PetsDAO();
+                pestDao.insert(PetsModel.fromJson(e));
+                var preferences = await SharedPreferences.getInstance();
+                preferences.setString('status', 'downloaded');
+              }
+            else {
+              print('No need to download');
+
+            }
+
           } catch (e) {
             if (kDebugMode) {
               print('DB exception $e');
             }
           }
         }).toList();
+        */
 
         return List<Pets>.from((response.data['pets'] as List).map((e) {
           return PetsModel.fromJson(e);
